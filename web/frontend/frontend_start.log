@@ -1,0 +1,30 @@
+
+> frontend@0.1.0 dev
+> next dev
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /home/Josias/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /home/Josias/Desktop/Expense Tracker/web/frontend/package-lock.json
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.100.208:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 1692ms
+ GET / 200 in 749ms (compile: 315ms, render: 434ms)
+ GET /register 200 in 177ms (compile: 62ms, proxy.ts: 77ms, render: 38ms)
+ GET /dashboard 200 in 948ms (compile: 895ms, proxy.ts: 6ms, render: 46ms)
+ GET /expenses/new 200 in 548ms (compile: 474ms, proxy.ts: 5ms, render: 69ms)
+✓ Compiled in 719ms
+✓ Compiled in 1060ms
+✓ Compiled in 522ms
+ GET /dashboard 200 in 106ms (compile: 26ms, proxy.ts: 27ms, render: 53ms)
+✓ Compiled in 4.3s
+ GET /expenses/new 200 in 155ms (compile: 82ms, proxy.ts: 8ms, render: 66ms)
+ GET /dashboard 200 in 163ms (compile: 63ms, proxy.ts: 5ms, render: 95ms)

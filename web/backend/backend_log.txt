@@ -1,0 +1,1126 @@
+nohup: ignoring input
+
+> backend@0.0.1 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m3:32:29 PM[0m] Starting compilation in watch mode...
+
+[[90m3:32:38 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 9385  - [39m03/08/2026, 3:32:40 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 9385  - [39m03/08/2026, 3:32:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +28ms[39m
+[32m[Nest] 9385  - [39m03/08/2026, 3:32:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9385  - [39m03/08/2026, 3:32:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9385  - [39m03/08/2026, 3:32:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 9385  - [39m03/08/2026, 3:32:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9385  - [39m03/08/2026, 3:32:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9385  - [39m03/08/2026, 3:32:40 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +37ms[39m
+[31m[Nest] 9385  - [39m03/08/2026, 3:33:10 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:33:43 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:34:16 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:34:49 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:35:22 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:35:55 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:36:28 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:37:01 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:37:34 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (9)...[39m
+MongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 9385  - [39m03/08/2026, 3:37:34 PM [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39mMongooseServerSelectionError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+    at _handleConnectionErrors [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongoose[24m/lib/connection.js:1169:11[90m)[39m
+    at NativeConnection.asPromise [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongoose[24m/lib/connection.js:1645:11[90m)[39m
+    at async <anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4m@nestjs/mongoose[24m/lib/mongoose-core.module.ts:125:15[90m)[39m {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: [32m'Unknown'[39m,
+    servers: Map(1) {
+      [32m'localhost:27017'[39m => ServerDescription {
+        address: [32m'localhost:27017'[39m,
+        type: [32m'Unknown'[39m,
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: [33m0[39m,
+        maxWireVersion: [33m0[39m,
+        roundTripTime: [33m-1[39m,
+        minRoundTripTime: [33m0[39m,
+        lastUpdateTime: [33m3297764[39m,
+        lastWriteDate: [33m0[39m,
+        error: MongoNetworkError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+            at Socket.<anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:395:16[90m)[39m
+        [90m    at Object.onceWrapper (node:events:634:26)[39m
+        [90m    at Socket.emit (node:events:519:28)[39m
+        [90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+        [90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+        [90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+          errorLabelSet: Set(1) {
+            [32m'ResetPool'[39m
+          },
+          beforeHandshake: [33mfalse[39m,
+          [cause]: AggregateError [ECONNREFUSED]: 
+          [90m    at internalConnectMultiple (node:net:1134:18)[39m
+          [90m    at afterConnectMultiple (node:net:1715:7)[39m {
+            code: [32m'ECONNREFUSED'[39m,
+            [errors]: [36m[Array][39m
+          }
+        },
+        topologyVersion: [1mnull[22m,
+        setName: [1mnull[22m,
+        setVersion: [1mnull[22m,
+        electionId: [1mnull[22m,
+        logicalSessionTimeoutMinutes: [1mnull[22m,
+        maxMessageSizeBytes: [1mnull[22m,
+        maxWriteBatchSize: [1mnull[22m,
+        maxBsonObjectSize: [1mnull[22m,
+        primary: [1mnull[22m,
+        me: [1mnull[22m,
+        [32m'$clusterTime'[39m: [1mnull[22m,
+        iscryptd: [33mfalse[39m
+      }
+    },
+    stale: [33mfalse[39m,
+    compatible: [33mtrue[39m,
+    heartbeatFrequencyMS: [33m10000[39m,
+    localThresholdMS: [33m15[39m,
+    setName: [1mnull[22m,
+    maxElectionId: [1mnull[22m,
+    maxSetVersion: [1mnull[22m,
+    commonWireVersion: [33m0[39m,
+    logicalSessionTimeoutMinutes: [1mnull[22m
+  },
+  code: [90mundefined[39m,
+  cause: TopologyDescription {
+    type: [32m'Unknown'[39m,
+    servers: Map(1) {
+      [32m'localhost:27017'[39m => ServerDescription {
+        address: [32m'localhost:27017'[39m,
+        type: [32m'Unknown'[39m,
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: [33m0[39m,
+        maxWireVersion: [33m0[39m,
+        roundTripTime: [33m-1[39m,
+        minRoundTripTime: [33m0[39m,
+        lastUpdateTime: [33m3297764[39m,
+        lastWriteDate: [33m0[39m,
+        error: MongoNetworkError: connect ECONNREFUSED ::1:27017, connect ECONNREFUSED 127.0.0.1:27017
+            at Socket.<anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:395:16[90m)[39m
+        [90m    at Object.onceWrapper (node:events:634:26)[39m
+        [90m    at Socket.emit (node:events:519:28)[39m
+        [90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+        [90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+        [90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+          errorLabelSet: Set(1) {
+            [32m'ResetPool'[39m
+          },
+          beforeHandshake: [33mfalse[39m,
+          [cause]: AggregateError [ECONNREFUSED]: 
+          [90m    at internalConnectMultiple (node:net:1134:18)[39m
+          [90m    at afterConnectMultiple (node:net:1715:7)[39m {
+            code: [32m'ECONNREFUSED'[39m,
+            [errors]: [36m[Array][39m
+          }
+        },
+        topologyVersion: [1mnull[22m,
+        setName: [1mnull[22m,
+        setVersion: [1mnull[22m,
+        electionId: [1mnull[22m,
+        logicalSessionTimeoutMinutes: [1mnull[22m,
+        maxMessageSizeBytes: [1mnull[22m,
+        maxWriteBatchSize: [1mnull[22m,
+        maxBsonObjectSize: [1mnull[22m,
+        primary: [1mnull[22m,
+        me: [1mnull[22m,
+        [32m'$clusterTime'[39m: [1mnull[22m,
+        iscryptd: [33mfalse[39m
+      }
+    },
+    stale: [33mfalse[39m,
+    compatible: [33mtrue[39m,
+    heartbeatFrequencyMS: [33m10000[39m,
+    localThresholdMS: [33m15[39m,
+    setName: [1mnull[22m,
+    maxElectionId: [1mnull[22m,
+    maxSetVersion: [1mnull[22m,
+    commonWireVersion: [33m0[39m,
+    logicalSessionTimeoutMinutes: [1mnull[22m
+  }
+}
+[2J[3J[H[[90m5:26:24 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m5:26:25 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +59ms[39m
+[32m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[32m[Nest] 18093  - [39m03/08/2026, 5:26:30 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +3ms[39m
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:33 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:36 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:39 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:42 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:45 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[2J[3J[H[[90m5:26:48 PM[0m] File change detected. Starting incremental compilation...
+
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:48 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:26:49 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:26:50 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:26:51 PM[0m] Found 1 error. Watching for file changes.
+
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:51 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[2J[3J[H[[90m5:26:52 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:26:52 PM[0m] Found 1 error. Watching for file changes.
+
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:54 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (9)...[39m
+MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:230:11)
+    at NativeConnection.openUri (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1075:34)
+    at Mongoose.createConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/mongoose.js:414:10)
+    at Function.createMongooseConnection (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:201:33)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:26)
+    at Observable._subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/observable/defer.ts:54:15)
+    at Observable.Observable._trySubscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:235:19)
+    at <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:225:18)
+    at Object.errorContext (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/util/errorContext.ts:29:5)
+    at Observable.Observable.subscribe (/home/Josias/Desktop/Expense Tracker/backend/node_modules/rxjs/src/internal/Observable.ts:211:5)
+[31m[Nest] 18093  - [39m03/08/2026, 5:26:54 PM [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39mMongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+    at NativeConnection.createClient [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongoose[24m/lib/drivers/node-mongodb-native/connection.js:230:11[90m)[39m
+    at NativeConnection.openUri [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongoose[24m/lib/connection.js:1075:34[90m)[39m
+    at Mongoose.createConnection [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongoose[24m/lib/mongoose.js:414:10[90m)[39m
+    at Function.createMongooseConnection [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4m@nestjs/mongoose[24m/lib/mongoose-core.module.ts:201:33[90m)[39m
+    at <anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4m@nestjs/mongoose[24m/lib/mongoose-core.module.ts:125:26[90m)[39m
+    at Observable._subscribe [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mrxjs[24m/src/internal/observable/defer.ts:54:15[90m)[39m
+    at Observable.Observable._trySubscribe [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mrxjs[24m/src/internal/Observable.ts:235:19[90m)[39m
+    at <anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mrxjs[24m/src/internal/Observable.ts:225:18[90m)[39m
+    at Object.errorContext [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mrxjs[24m/src/internal/util/errorContext.ts:29:5[90m)[39m
+    at Observable.Observable.subscribe [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mrxjs[24m/src/internal/Observable.ts:211:5[90m)[39m
+[2J[3J[H[[90m5:27:14 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:27:15 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:27:19 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:27:20 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:27:25 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:27:25 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:27:30 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:27:31 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:27:44 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:27:44 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:27:51 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/users/users.service.ts[0m:[93m7[0m:[93m1[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.
+
+[7m7[0m }
+[7m [0m [91m~[0m
+
+[[90m5:27:51 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:28:04 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:28:04 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:28:06 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:28:07 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:28:08 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:28:09 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:28:19 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:28:20 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:28:21 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:28:22 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:31:51 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:31:53 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:31:54 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:31:54 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:32:23 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:32:24 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m5:32:40 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m5:32:40 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:47:47 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:47:52 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:47:54 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:47:57 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:48:20 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:48:20 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:48:26 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:48:28 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:48:33 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:48:35 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:48:44 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:48:47 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:48:51 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:48:53 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:48:56 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:48:58 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:49:23 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:49:26 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:49:32 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/auth/auth.controller.ts[0m:[93m2[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"./auth.service"' has no exported member 'AuthService'.
+
+[7m2[0m import { AuthService } from './auth.service';
+[7m [0m [91m         ~~~~~~~~~~~[0m
+
+[96msrc/auth/auth.module.ts[0m:[93m5[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"./auth.service"' has no exported member 'AuthService'.
+
+[7m5[0m import { AuthService } from './auth.service';
+[7m [0m [91m         ~~~~~~~~~~~[0m
+
+[96msrc/auth/auth.service.ts[0m:[93m1[0m:[93m1[0m - [91merror[0m[90m TS2349: [0mThis expression is not callable.
+  Type 'String' has no call signatures.
+
+[7m1[0m ```typescript
+[7m [0m [91m~~[0m
+
+[96msrc/auth/strategies/local.strategy.ts[0m:[93m4[0m:[93m10[0m - [91merror[0m[90m TS2305: [0mModule '"../auth.service"' has no exported member 'AuthService'.
+
+[7m4[0m import { AuthService } from '../auth.service';
+[7m [0m [91m         ~~~~~~~~~~~[0m
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:49:32 PM[0m] Found 5 errors. Watching for file changes.
+
+[2J[3J[H[[90m8:49:51 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:49:52 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:50:02 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:50:06 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:50:08 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:50:11 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:50:36 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:50:39 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:50:41 PM[0m] File change detected. Starting incremental compilation...
+
+[96msrc/supabase/supabase.service.ts[0m:[93m3[0m:[93m46[0m - [91merror[0m[90m TS2307: [0mCannot find module '@supabase/supabase-js' or its corresponding type declarations.
+
+[7m3[0m import { createClient, SupabaseClient } from '@supabase/supabase-js';
+[7m [0m [91m                                             ~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[[90m8:50:43 PM[0m] Found 1 error. Watching for file changes.
+
+[2J[3J[H[[90m8:50:51 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m8:50:51 PM[0m] Found 0 errors. Watching for file changes.
+
+[2J[3J[H[[90m8:50:52 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m8:50:52 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 20164  - [39m03/08/2026, 8:50:54 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 20164  - [39m03/08/2026, 8:50:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +59ms[39m
+[32m[Nest] 20164  - [39m03/08/2026, 8:50:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20164  - [39m03/08/2026, 8:50:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20164  - [39m03/08/2026, 8:50:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +4ms[39m
+[32m[Nest] 20164  - [39m03/08/2026, 8:50:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 20164  - [39m03/08/2026, 8:50:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 20164  - [39m03/08/2026, 8:50:54 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +34ms[39m
+[31m[Nest] 20164  - [39m03/08/2026, 8:50:56 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:01 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:06 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:11 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:15 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:21 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:26 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:44 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:51 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (9)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 20164  - [39m03/08/2026, 8:51:51 PM [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39mMongoServerError: bad auth : authentication failed
+    at Connection.sendCommand [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connection.ts:557:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connection.ts:627:22[90m)[39m
+    at async continueScramConversation [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/auth/scram.ts:187:13[90m)[39m
+    at async executeScram [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/auth/scram.ts:114:3[90m)[39m
+    at async ScramSHA1.auth [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/auth/scram.ts:60:12[90m)[39m
+    at async performInitialHandshake [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:164:7[90m)[39m
+    at async connect [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:43:5[90m)[39m {
+  errorLabelSet: Set(2) {
+    [32m'HandshakeError'[39m,
+    [32m'ResetPool'[39m
+  },
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'bad auth : authentication failed'[39m,
+    code: [33m8000[39m,
+    codeName: [32m'AtlasError'[39m
+  },
+  ok: [33m0[39m,
+  code: [33m8000[39m,
+  codeName: [32m'AtlasError'[39m,
+  connectionGeneration: [33m0[39m
+}
+[2J[3J[H[[90m9:19:34 PM[0m] File change detected. Starting incremental compilation...
+
+[[90m9:19:40 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 21987  - [39m03/08/2026, 9:19:43 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 21987  - [39m03/08/2026, 9:19:43 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +37ms[39m
+[32m[Nest] 21987  - [39m03/08/2026, 9:19:43 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 21987  - [39m03/08/2026, 9:19:43 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 21987  - [39m03/08/2026, 9:19:43 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +3ms[39m
+[32m[Nest] 21987  - [39m03/08/2026, 9:19:43 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 21987  - [39m03/08/2026, 9:19:43 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 21987  - [39m03/08/2026, 9:19:43 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +25ms[39m
+[31m[Nest] 21987  - [39m03/08/2026, 9:20:14 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:20:47 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:21:20 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:21:53 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:22:26 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:22:59 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:23:33 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:24:06 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:24:39 PM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (9)...[39m
+MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1169:11)
+    at NativeConnection.asPromise (/home/Josias/Desktop/Expense Tracker/backend/node_modules/mongoose/lib/connection.js:1645:11)
+    at async <anonymous> (/home/Josias/Desktop/Expense Tracker/backend/node_modules/@nestjs/mongoose/lib/mongoose-core.module.ts:125:15)
+[31m[Nest] 21987  - [39m03/08/2026, 9:24:39 PM [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39mMongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+    at _handleConnectionErrors [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongoose[24m/lib/connection.js:1169:11[90m)[39m
+    at NativeConnection.asPromise [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongoose[24m/lib/connection.js:1645:11[90m)[39m
+    at async <anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4m@nestjs/mongoose[24m/lib/mongoose-core.module.ts:125:15[90m)[39m {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: [32m'ReplicaSetNoPrimary'[39m,
+    servers: Map(3) {
+      [32m'ac-zt3vqxa-shard-00-00.gnvkcuq.mongodb.net:27017'[39m => ServerDescription {
+        address: [32m'ac-zt3vqxa-shard-00-00.gnvkcuq.mongodb.net:27017'[39m,
+        type: [32m'Unknown'[39m,
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: [33m0[39m,
+        maxWireVersion: [33m0[39m,
+        roundTripTime: [33m-1[39m,
+        minRoundTripTime: [33m0[39m,
+        lastUpdateTime: [33m10019170[39m,
+        lastWriteDate: [33m0[39m,
+        error: MongoNetworkError: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+        
+            at TLSSocket.<anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:395:16[90m)[39m
+        [90m    at Object.onceWrapper (node:events:634:26)[39m
+        [90m    at TLSSocket.emit (node:events:519:28)[39m
+        [90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+        [90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+        [90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+          errorLabelSet: Set(1) {
+            [32m'ResetPool'[39m
+          },
+          beforeHandshake: [33mfalse[39m,
+          [cause]: [Error: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+          ] {
+            library: [32m'SSL routines'[39m,
+            reason: [32m'tlsv1 alert internal error'[39m,
+            code: [32m'ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR'[39m
+          }
+        },
+        topologyVersion: [1mnull[22m,
+        setName: [1mnull[22m,
+        setVersion: [1mnull[22m,
+        electionId: [1mnull[22m,
+        logicalSessionTimeoutMinutes: [1mnull[22m,
+        maxMessageSizeBytes: [1mnull[22m,
+        maxWriteBatchSize: [1mnull[22m,
+        maxBsonObjectSize: [1mnull[22m,
+        primary: [1mnull[22m,
+        me: [1mnull[22m,
+        [32m'$clusterTime'[39m: [1mnull[22m,
+        iscryptd: [33mfalse[39m
+      },
+      [32m'ac-zt3vqxa-shard-00-02.gnvkcuq.mongodb.net:27017'[39m => ServerDescription {
+        address: [32m'ac-zt3vqxa-shard-00-02.gnvkcuq.mongodb.net:27017'[39m,
+        type: [32m'Unknown'[39m,
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: [33m0[39m,
+        maxWireVersion: [33m0[39m,
+        roundTripTime: [33m-1[39m,
+        minRoundTripTime: [33m0[39m,
+        lastUpdateTime: [33m10019137[39m,
+        lastWriteDate: [33m0[39m,
+        error: MongoNetworkError: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+        
+            at TLSSocket.<anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:395:16[90m)[39m
+        [90m    at Object.onceWrapper (node:events:634:26)[39m
+        [90m    at TLSSocket.emit (node:events:519:28)[39m
+        [90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+        [90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+        [90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+          errorLabelSet: Set(1) {
+            [32m'ResetPool'[39m
+          },
+          beforeHandshake: [33mfalse[39m,
+          [cause]: [Error: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+          ] {
+            library: [32m'SSL routines'[39m,
+            reason: [32m'tlsv1 alert internal error'[39m,
+            code: [32m'ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR'[39m
+          }
+        },
+        topologyVersion: [1mnull[22m,
+        setName: [1mnull[22m,
+        setVersion: [1mnull[22m,
+        electionId: [1mnull[22m,
+        logicalSessionTimeoutMinutes: [1mnull[22m,
+        maxMessageSizeBytes: [1mnull[22m,
+        maxWriteBatchSize: [1mnull[22m,
+        maxBsonObjectSize: [1mnull[22m,
+        primary: [1mnull[22m,
+        me: [1mnull[22m,
+        [32m'$clusterTime'[39m: [1mnull[22m,
+        iscryptd: [33mfalse[39m
+      },
+      [32m'ac-zt3vqxa-shard-00-01.gnvkcuq.mongodb.net:27017'[39m => ServerDescription {
+        address: [32m'ac-zt3vqxa-shard-00-01.gnvkcuq.mongodb.net:27017'[39m,
+        type: [32m'Unknown'[39m,
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: [33m0[39m,
+        maxWireVersion: [33m0[39m,
+        roundTripTime: [33m-1[39m,
+        minRoundTripTime: [33m0[39m,
+        lastUpdateTime: [33m10019332[39m,
+        lastWriteDate: [33m0[39m,
+        error: MongoNetworkError: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+        
+            at TLSSocket.<anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:395:16[90m)[39m
+        [90m    at Object.onceWrapper (node:events:634:26)[39m
+        [90m    at TLSSocket.emit (node:events:519:28)[39m
+        [90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+        [90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+        [90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+          errorLabelSet: Set(1) {
+            [32m'ResetPool'[39m
+          },
+          beforeHandshake: [33mfalse[39m,
+          [cause]: [Error: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+          ] {
+            library: [32m'SSL routines'[39m,
+            reason: [32m'tlsv1 alert internal error'[39m,
+            code: [32m'ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR'[39m
+          }
+        },
+        topologyVersion: [1mnull[22m,
+        setName: [1mnull[22m,
+        setVersion: [1mnull[22m,
+        electionId: [1mnull[22m,
+        logicalSessionTimeoutMinutes: [1mnull[22m,
+        maxMessageSizeBytes: [1mnull[22m,
+        maxWriteBatchSize: [1mnull[22m,
+        maxBsonObjectSize: [1mnull[22m,
+        primary: [1mnull[22m,
+        me: [1mnull[22m,
+        [32m'$clusterTime'[39m: [1mnull[22m,
+        iscryptd: [33mfalse[39m
+      }
+    },
+    stale: [33mfalse[39m,
+    compatible: [33mtrue[39m,
+    heartbeatFrequencyMS: [33m10000[39m,
+    localThresholdMS: [33m15[39m,
+    setName: [32m'atlas-f1824a-shard-0'[39m,
+    maxElectionId: [1mnull[22m,
+    maxSetVersion: [1mnull[22m,
+    commonWireVersion: [33m0[39m,
+    logicalSessionTimeoutMinutes: [1mnull[22m
+  },
+  code: [90mundefined[39m,
+  cause: TopologyDescription {
+    type: [32m'ReplicaSetNoPrimary'[39m,
+    servers: Map(3) {
+      [32m'ac-zt3vqxa-shard-00-00.gnvkcuq.mongodb.net:27017'[39m => ServerDescription {
+        address: [32m'ac-zt3vqxa-shard-00-00.gnvkcuq.mongodb.net:27017'[39m,
+        type: [32m'Unknown'[39m,
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: [33m0[39m,
+        maxWireVersion: [33m0[39m,
+        roundTripTime: [33m-1[39m,
+        minRoundTripTime: [33m0[39m,
+        lastUpdateTime: [33m10019170[39m,
+        lastWriteDate: [33m0[39m,
+        error: MongoNetworkError: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+        
+            at TLSSocket.<anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:395:16[90m)[39m
+        [90m    at Object.onceWrapper (node:events:634:26)[39m
+        [90m    at TLSSocket.emit (node:events:519:28)[39m
+        [90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+        [90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+        [90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+          errorLabelSet: Set(1) {
+            [32m'ResetPool'[39m
+          },
+          beforeHandshake: [33mfalse[39m,
+          [cause]: [Error: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+          ] {
+            library: [32m'SSL routines'[39m,
+            reason: [32m'tlsv1 alert internal error'[39m,
+            code: [32m'ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR'[39m
+          }
+        },
+        topologyVersion: [1mnull[22m,
+        setName: [1mnull[22m,
+        setVersion: [1mnull[22m,
+        electionId: [1mnull[22m,
+        logicalSessionTimeoutMinutes: [1mnull[22m,
+        maxMessageSizeBytes: [1mnull[22m,
+        maxWriteBatchSize: [1mnull[22m,
+        maxBsonObjectSize: [1mnull[22m,
+        primary: [1mnull[22m,
+        me: [1mnull[22m,
+        [32m'$clusterTime'[39m: [1mnull[22m,
+        iscryptd: [33mfalse[39m
+      },
+      [32m'ac-zt3vqxa-shard-00-02.gnvkcuq.mongodb.net:27017'[39m => ServerDescription {
+        address: [32m'ac-zt3vqxa-shard-00-02.gnvkcuq.mongodb.net:27017'[39m,
+        type: [32m'Unknown'[39m,
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: [33m0[39m,
+        maxWireVersion: [33m0[39m,
+        roundTripTime: [33m-1[39m,
+        minRoundTripTime: [33m0[39m,
+        lastUpdateTime: [33m10019137[39m,
+        lastWriteDate: [33m0[39m,
+        error: MongoNetworkError: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+        
+            at TLSSocket.<anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:395:16[90m)[39m
+        [90m    at Object.onceWrapper (node:events:634:26)[39m
+        [90m    at TLSSocket.emit (node:events:519:28)[39m
+        [90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+        [90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+        [90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+          errorLabelSet: Set(1) {
+            [32m'ResetPool'[39m
+          },
+          beforeHandshake: [33mfalse[39m,
+          [cause]: [Error: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+          ] {
+            library: [32m'SSL routines'[39m,
+            reason: [32m'tlsv1 alert internal error'[39m,
+            code: [32m'ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR'[39m
+          }
+        },
+        topologyVersion: [1mnull[22m,
+        setName: [1mnull[22m,
+        setVersion: [1mnull[22m,
+        electionId: [1mnull[22m,
+        logicalSessionTimeoutMinutes: [1mnull[22m,
+        maxMessageSizeBytes: [1mnull[22m,
+        maxWriteBatchSize: [1mnull[22m,
+        maxBsonObjectSize: [1mnull[22m,
+        primary: [1mnull[22m,
+        me: [1mnull[22m,
+        [32m'$clusterTime'[39m: [1mnull[22m,
+        iscryptd: [33mfalse[39m
+      },
+      [32m'ac-zt3vqxa-shard-00-01.gnvkcuq.mongodb.net:27017'[39m => ServerDescription {
+        address: [32m'ac-zt3vqxa-shard-00-01.gnvkcuq.mongodb.net:27017'[39m,
+        type: [32m'Unknown'[39m,
+        hosts: [],
+        passives: [],
+        arbiters: [],
+        tags: {},
+        minWireVersion: [33m0[39m,
+        maxWireVersion: [33m0[39m,
+        roundTripTime: [33m-1[39m,
+        minRoundTripTime: [33m0[39m,
+        lastUpdateTime: [33m10019332[39m,
+        lastWriteDate: [33m0[39m,
+        error: MongoNetworkError: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+        
+            at TLSSocket.<anonymous> [90m(/home/Josias/Desktop/Expense Tracker/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:395:16[90m)[39m
+        [90m    at Object.onceWrapper (node:events:634:26)[39m
+        [90m    at TLSSocket.emit (node:events:519:28)[39m
+        [90m    at emitErrorNT (node:internal/streams/destroy:170:8)[39m
+        [90m    at emitErrorCloseNT (node:internal/streams/destroy:129:3)[39m
+        [90m    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)[39m {
+          errorLabelSet: Set(1) {
+            [32m'ResetPool'[39m
+          },
+          beforeHandshake: [33mfalse[39m,
+          [cause]: [Error: C0C8BC92057F0000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:916:SSL alert number 80
+          ] {
+            library: [32m'SSL routines'[39m,
+            reason: [32m'tlsv1 alert internal error'[39m,
+            code: [32m'ERR_SSL_TLSV1_ALERT_INTERNAL_ERROR'[39m
+          }
+        },
+        topologyVersion: [1mnull[22m,
+        setName: [1mnull[22m,
+        setVersion: [1mnull[22m,
+        electionId: [1mnull[22m,
+        logicalSessionTimeoutMinutes: [1mnull[22m,
+        maxMessageSizeBytes: [1mnull[22m,
+        maxWriteBatchSize: [1mnull[22m,
+        maxBsonObjectSize: [1mnull[22m,
+        primary: [1mnull[22m,
+        me: [1mnull[22m,
+        [32m'$clusterTime'[39m: [1mnull[22m,
+        iscryptd: [33mfalse[39m
+      }
+    },
+    stale: [33mfalse[39m,
+    compatible: [33mtrue[39m,
+    heartbeatFrequencyMS: [33m10000[39m,
+    localThresholdMS: [33m15[39m,
+    setName: [32m'atlas-f1824a-shard-0'[39m,
+    maxElectionId: [1mnull[22m,
+    maxSetVersion: [1mnull[22m,
+    commonWireVersion: [33m0[39m,
+    logicalSessionTimeoutMinutes: [1mnull[22m
+  }
+}

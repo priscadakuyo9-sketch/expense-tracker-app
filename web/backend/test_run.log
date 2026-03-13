@@ -1,0 +1,131 @@
+
+> backend@0.0.1 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m11:03:19 AM[0m] Starting compilation in watch mode...
+
+[[90m11:03:38 AM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +13ms[39m
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mThrottlerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +43ms[39m
+[32m[Nest] 9054  - [39m03/13/2026, 11:03:41 AM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[31m[Nest] 9054  - [39m03/13/2026, 11:03:43 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (1)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:03:47 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (2)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:03:52 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (3)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:03:56 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (4)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:04:01 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (5)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:04:06 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (6)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:04:10 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (7)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:04:15 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (8)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:04:19 AM [31m  ERROR[39m [38;5;3m[MongooseModule] [39m[31mUnable to connect to the database. Retrying (9)...[39m
+MongoServerError: bad auth : authentication failed
+    at Connection.sendCommand (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:557:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Connection.command (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connection.ts:627:22)
+    at async continueScramConversation (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:187:13)
+    at async executeScram (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:114:3)
+    at async ScramSHA1.auth (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/auth/scram.ts:60:12)
+    at async performInitialHandshake (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:164:7)
+    at async connect (/home/Josias/Desktop/Expense Tracker/web/backend/node_modules/mongodb/src/cmap/connect.ts:43:5)
+[31m[Nest] 9054  - [39m03/13/2026, 11:04:19 AM [31m  ERROR[39m [38;5;3m[ExceptionHandler] [39mMongoServerError: bad auth : authentication failed
+    at Connection.sendCommand [90m(/home/Josias/Desktop/Expense Tracker/web/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connection.ts:557:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)[39m
+    at async Connection.command [90m(/home/Josias/Desktop/Expense Tracker/web/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connection.ts:627:22[90m)[39m
+    at async continueScramConversation [90m(/home/Josias/Desktop/Expense Tracker/web/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/auth/scram.ts:187:13[90m)[39m
+    at async executeScram [90m(/home/Josias/Desktop/Expense Tracker/web/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/auth/scram.ts:114:3[90m)[39m
+    at async ScramSHA1.auth [90m(/home/Josias/Desktop/Expense Tracker/web/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/auth/scram.ts:60:12[90m)[39m
+    at async performInitialHandshake [90m(/home/Josias/Desktop/Expense Tracker/web/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:164:7[90m)[39m
+    at async connect [90m(/home/Josias/Desktop/Expense Tracker/web/backend/[39mnode_modules/[4mmongodb[24m/src/cmap/connect.ts:43:5[90m)[39m {
+  errorLabelSet: Set(2) {
+    [32m'HandshakeError'[39m,
+    [32m'ResetPool'[39m
+  },
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'bad auth : authentication failed'[39m,
+    code: [33m8000[39m,
+    codeName: [32m'AtlasError'[39m
+  },
+  ok: [33m0[39m,
+  code: [33m8000[39m,
+  codeName: [32m'AtlasError'[39m,
+  connectionGeneration: [33m0[39m
+}
