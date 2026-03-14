@@ -16,9 +16,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#09090b",
-        "foregroundImage": "./assets/adaptive-icon.png"
-      }
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "backgroundColor": "#09090b"
+      },
+      "package": "com.dakuyo_alexias.expensetrackermobile"
     },
     "web": {
       "favicon": "./assets/favicon.png",
@@ -27,6 +29,11 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "expense-tracker"
+    "scheme": "expense-tracker",
+    "extra": {
+      "eas": {
+        "projectId": "dc42d8f5-de67-4086-a45d-78a3331ba8fc"
+      }
+    }
   }
 }
