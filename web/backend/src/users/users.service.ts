@@ -9,12 +9,16 @@ export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async create(createUserDto: any): Promise<User> {
+    console.log('[USERS] Create appelé pour:', createUserDto.email);
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+    console.log('[USERS] Hash bcrypt généré ✅');
     const createdUser = new this.userModel({
       ...createUserDto,
       password: hashedPassword,
     });
-    return createdUser.save();
+    const saved = await createdUser.save();
+    console.log('[USERS] Utilisateur sauvegardé en DB ✅, ID:', saved._id);
+    return saved;
   }
 
   async findByEmail(email: string): Promise<User | null> {

@@ -19,9 +19,17 @@ import { APP_GUARD } from '@nestjs/core';
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri: configService.get<string>('MONGODB_URI'),
-      }),
+      useFactory: async (configService: ConfigService) => {
+        const uri = configService.get<string>('MONGODB_URI');
+        console.log('[DB] URI charg\u00e9e:', uri ? `...${uri.slice(-30)}` : 'UNDEFINED \u274c V\u00e9rifie MONGODB_URI sur Render');
+        return {
+          uri,
+          serverSelectionTimeoutMS: 5000,
+          socketTimeoutMS: 45000,
+          connectTimeoutMS: 10000,
+          maxPoolSize: 10,
+        };
+      },
       inject: [ConfigService],
     }),
     AuthModule,
