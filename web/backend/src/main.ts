@@ -8,11 +8,18 @@ import { ThrottlerGuard } from '@nestjs/throttler';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // Diagnostic logs (retirer après résolution)
+  console.log('[BOOT] NODE_ENV:', process.env.NODE_ENV);
+  console.log('[BOOT] FRONTEND_URL:', process.env.FRONTEND_URL ?? '⚠️ NON DÉFINI — CORS bloquera le frontend');
+
   // Security
   app.use(helmet());
+  // IMPORTANT: avec credentials:true, origin NE PEUT PAS être '*'
+  // Définir FRONTEND_URL sur Render: ex. https://mon-app.vercel.app
   app.enableCors({
-    origin: process.env.FRONTEND_URL || '*', // À restreindre en prod
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    origin: process.env.FRONTEND_URL, // Doit être défini sur Render
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type, Authorization',
     credentials: true,
   });
 
@@ -39,6 +46,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
 
-  await app.listen(process.env.PORT || 3000);
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
+  console.log(`[BOOT] ✅ Serveur démarré sur le port ${port}`);
 }
 bootstrap();
