@@ -13,7 +13,6 @@ export declare class BudgetsController {
         percentage?: undefined;
         alertThreshold?: undefined;
         alertTriggered?: undefined;
-        debug?: undefined;
     } | {
         hasBudget: boolean;
         period: string;
@@ -22,11 +21,6 @@ export declare class BudgetsController {
         percentage: number;
         alertThreshold: any;
         alertTriggered: boolean;
-        debug: {
-            userId: string;
-            period: string;
-            rawBudget: import("../schemas/budget.schema").Budget;
-        };
     }>;
     findByPeriod(req: any, period: string): Promise<import("../schemas/budget.schema").Budget | null>;
 }

@@ -7,6 +7,6 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return 'Expense Tracker API v1.0.4';
+    return this.appService.getHello();
   }
 }

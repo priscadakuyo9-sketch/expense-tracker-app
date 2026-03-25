@@ -85,7 +85,6 @@ let BudgetsService = class BudgetsService {
             percentage,
             alertThreshold,
             alertTriggered: percentage >= alertThreshold,
-            debug: { userId, period, rawBudget: budget }
         };
     }
 };

@@ -18,7 +18,7 @@ let AppController = class AppController {
         this.appService = appService;
     }
     getHello() {
-        return 'Expense Tracker API v1.0.4';
+        return this.appService.getHello();
     }
 };
 exports.AppController = AppController;
