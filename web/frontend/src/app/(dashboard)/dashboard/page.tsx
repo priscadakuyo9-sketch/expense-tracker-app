@@ -59,6 +59,9 @@ export default function DashboardPage() {
             setStats(statsRes.data);
             setExpenses(expensesRes.data);
             setBudgetStatus(budgetRes.data);
+            console.log('[DASHBOARD] API URL:', process.env.NEXT_PUBLIC_API_URL || 'DEFAULT (LOCALHOST)');
+            console.log('[DASHBOARD] User ID:', JSON.parse(localStorage.getItem('user') || '{}').id);
+            console.log('[DASHBOARD] Budget Data:', budgetRes.data);
 
             // Format trend data for chart
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
