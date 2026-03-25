@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, BarChart3 } from 'lucide-react';
+import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, BarChart3, AlertTriangle } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import api from '@/lib/api';
@@ -30,6 +30,7 @@ export default function DashboardPage() {
     const [stats, setStats] = useState<any>([]);
     const [expenses, setExpenses] = useState<any>([]);
     const [trendData, setTrendData] = useState<any>([]);
+    const [budgetStatus, setBudgetStatus] = useState<any>({ hasBudget: false });
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -48,14 +49,16 @@ export default function DashboardPage() {
             const year = now.getFullYear();
             const month = now.getMonth() + 1;
 
-            const [statsRes, expensesRes, trendRes] = await Promise.all([
+            const [statsRes, expensesRes, trendRes, budgetRes] = await Promise.all([
                 api.get(`/stats/monthly?year=${year}&month=${month}`),
                 api.get('/expenses'),
                 api.get(`/stats/yearly-trend?year=${year}`),
+                api.get('/budgets/status'),
             ]);
 
             setStats(statsRes.data);
             setExpenses(expensesRes.data);
+            setBudgetStatus(budgetRes.data);
 
             // Format trend data for chart
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -115,6 +118,23 @@ export default function DashboardPage() {
             </nav>
 
             <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+                {/* Budget Alert Banner */}
+                {budgetStatus.hasBudget && budgetStatus.alertTriggered && (
+                    <div 
+                        onClick={() => router.push('/budgets')}
+                        className="mb-8 cursor-pointer rounded-2xl bg-red-500/10 border border-red-500/40 p-4 flex items-center transition-all hover:bg-red-500/20"
+                    >
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500/20 text-red-500 mr-4">
+                            <AlertTriangle size={24} />
+                        </div>
+                        <div className="flex-1">
+                            <h3 className="font-bold text-red-500 text-lg">Budget Alert ⚠️</h3>
+                            <p className="text-red-400/80 text-sm">You have reached {budgetStatus.percentage}% of your monthly limit ({budgetStatus.totalSpent?.toLocaleString()} / {budgetStatus.limitAmount?.toLocaleString()} {user?.currency}).</p>
+                        </div>
+                        <ArrowUpRight className="text-red-500 h-5 w-5" />
+                    </div>
+                )}
+
                 {/* Hero Section */}
                 <div className="mb-10 flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
                     <div>
@@ -131,6 +151,41 @@ export default function DashboardPage() {
                         Add New Expense
                     </Button>
                 </div>
+
+                {/* Budget Progress Card (Visible if budget set) */}
+                {budgetStatus.hasBudget && (
+                    <Card className="mb-10 border-zinc-800 bg-zinc-900/40 overflow-hidden relative group">
+                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <CardHeader className="flex flex-row items-center justify-between">
+                            <div>
+                                <CardTitle className="text-xl font-bold text-white">Monthly Budget Status</CardTitle>
+                                <p className="text-xs text-zinc-500">Target spending control for {budgetStatus.period}</p>
+                            </div>
+                            <div className="text-right">
+                                <span className="text-lg font-bold text-white">{budgetStatus.percentage}%</span>
+                                <p className="text-[10px] uppercase text-zinc-500 font-mono">Utilized</p>
+                            </div>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="mb-4 h-3 w-full overflow-hidden rounded-full bg-zinc-800 border border-zinc-700/50">
+                                <div
+                                    className={`h-full transition-all duration-1000 ease-out ${budgetStatus.alertTriggered ? 'bg-red-500 shadow-[0_0_10px_rgba(239,44,44,0.3)]' : 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]'}`}
+                                    style={{ width: `${Math.min(budgetStatus.percentage, 100)}%` }}
+                                />
+                            </div>
+                            <div className="flex justify-between items-end">
+                                <div>
+                                    <p className="text-xs text-zinc-500 mb-1">Total Spent</p>
+                                    <p className="text-xl font-bold text-white">{user?.currency} {budgetStatus.totalSpent?.toLocaleString()}</p>
+                                </div>
+                                <div className="text-right">
+                                    <p className="text-xs text-zinc-500 mb-1">Budget Limit</p>
+                                    <p className="text-xl font-bold text-zinc-300">{user?.currency} {budgetStatus.limitAmount?.toLocaleString()}</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                )}
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-10">
