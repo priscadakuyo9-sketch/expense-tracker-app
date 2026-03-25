@@ -95,10 +95,10 @@ export default function Dashboard() {
     if (loading && !refreshing) {
         return (
             <View
-                className="flex-1 items-center justify-center bg-white"
-                style={{ flex: 1, backgroundColor: '#ffffff' }}
+                className="flex-1 items-center justify-center bg-[#09090b]"
             >
-                <Text className="text-emerald-500 font-bold">Loading Expense Tracker...</Text>
+                <ActivityIndicator color="#10b981" />
+                <Text className="text-emerald-500 font-bold mt-4 tracking-widest uppercase text-[10px]">Syncing Portfolio...</Text>
             </View>
         );
     }
@@ -187,7 +187,6 @@ export default function Dashboard() {
                         <Text className="text-zinc-400 text-sm font-bold uppercase tracking-widest">Set monthly budget limit</Text>
                     </TouchableOpacity>
                 )}
- )}
 
                 {/* Big Wallet Card */}
                 <View className="mb-8 rounded-[40px] bg-emerald-600 p-8 shadow-2xl shadow-emerald-500/40 relative overflow-hidden">
