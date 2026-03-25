@@ -31,6 +31,12 @@ export class BudgetsController {
     return this.budgetsService.findCurrent(req.user.userId);
   }
 
+  @Get('status')
+  @ApiOperation({ summary: 'Get budget status and alert for current month' })
+  getBudgetStatus(@Request() req: any) {
+    return this.budgetsService.getBudgetStatus(req.user.userId);
+  }
+
   @Get()
   @ApiOperation({ summary: 'Get budget for a specific period' })
   findByPeriod(@Request() req: any, @Query('period') period: string) {

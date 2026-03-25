@@ -2,11 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Budget } from '../schemas/budget.schema';
+import { Expense } from '../schemas/expense.schema';
 import { CreateBudgetDto } from './dto/budget.dto';
 
 @Injectable()
 export class BudgetsService {
-  constructor(@InjectModel(Budget.name) private budgetModel: Model<Budget>) { }
+  constructor(
+    @InjectModel(Budget.name) private budgetModel: Model<Budget>,
+    @InjectModel(Expense.name) private expenseModel: Model<Expense>,
+  ) { }
 
   async createOrUpdate(
     createBudgetDto: CreateBudgetDto,
@@ -51,4 +55,52 @@ export class BudgetsService {
       .findOne({ userId: new Types.ObjectId(userId), period })
       .exec();
   }
+
+  async getBudgetStatus(userId: string) {
+    // Current period: YYYY-MM
+    const now = new Date();
+    const period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+
+    const budget = await this.findByPeriod(userId, period);
+    if (!budget) {
+      return { hasBudget: false };
+    }
+
+    // Sum all expenses for the current calendar month
+    const startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+    const endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
+
+    const result = await this.expenseModel.aggregate([
+      {
+        $match: {
+          userId: new Types.ObjectId(userId),
+          date: { $gte: startDate, $lte: endDate },
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          totalSpent: { $sum: '$amount' },
+        },
+      },
+    ]);
+
+    const totalSpent = result.length > 0 ? result[0].totalSpent : 0;
+    // Support both `limitAmount` (schema field) and `amount` (DTO field saved by legacy code)
+    const limitAmount = (budget as any).limitAmount ?? (budget as any).amount ?? 0;
+    const alertThreshold = (budget as any).alertThreshold ?? 80;
+    const percentage = limitAmount > 0 ? Math.round((totalSpent / limitAmount) * 100) : 0;
+    const alertTriggered = percentage >= alertThreshold;
+
+    return {
+      hasBudget: true,
+      period,
+      limitAmount,
+      totalSpent,
+      percentage,
+      alertThreshold,
+      alertTriggered,
+    };
+  }
 }
+

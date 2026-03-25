@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, RefreshControl } from 'react-native';
-import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar } from 'lucide-react-native';
+import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, AlertTriangle } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import api from '../lib/api';
@@ -23,11 +23,22 @@ interface ExpenseItem {
     };
 }
 
+interface BudgetStatus {
+    hasBudget: boolean;
+    period?: string;
+    limitAmount?: number;
+    totalSpent?: number;
+    percentage?: number;
+    alertThreshold?: number;
+    alertTriggered?: boolean;
+}
+
 export default function Dashboard() {
     const router = useRouter();
     const [user, setUser] = useState<any>(null);
     const [stats, setStats] = useState<StatItem[]>([]);
     const [expenses, setExpenses] = useState<ExpenseItem[]>([]);
+    const [budgetStatus, setBudgetStatus] = useState<BudgetStatus>({ hasBudget: false });
     const [loading, setLoading] = useState(true);
     const [refreshing, setRefreshing] = useState(false);
 
@@ -46,12 +57,14 @@ export default function Dashboard() {
     const fetchData = async () => {
         try {
             const now = new Date();
-            const [statsRes, expensesRes] = await Promise.all([
+            const [statsRes, expensesRes, budgetRes] = await Promise.all([
                 api.get(`/stats/monthly?year=${now.getFullYear()}&month=${now.getMonth() + 1}`),
                 api.get('/expenses'),
+                api.get('/budgets/status'),
             ]);
             setStats(statsRes.data);
             setExpenses(expensesRes.data);
+            setBudgetStatus(budgetRes.data);
         } catch (err) {
             console.error('Mobile fetch error:', err);
         } finally {
@@ -81,14 +94,20 @@ export default function Dashboard() {
 
     if (loading && !refreshing) {
         return (
-            <View className="flex-1 items-center justify-center bg-[#09090b]">
-                <Text className="text-emerald-500">Loading...</Text>
+            <View
+                className="flex-1 items-center justify-center bg-white"
+                style={{ flex: 1, backgroundColor: '#ffffff' }}
+            >
+                <Text className="text-emerald-500 font-bold">Loading Expense Tracker...</Text>
             </View>
         );
     }
 
     return (
-        <SafeAreaView className="flex-1 bg-[#09090b]">
+        <SafeAreaView
+            className="flex-1 bg-white"
+            style={{ flex: 1, backgroundColor: '#ffffff' }}
+        >
             <ScrollView
                 className="flex-1 px-4 py-6"
                 refreshControl={
@@ -110,6 +129,39 @@ export default function Dashboard() {
                         <LogOut size={20} color="#a1a1aa" />
                     </TouchableOpacity>
                 </View>
+
+                {/* Budget Alert Banner */}
+                {budgetStatus.hasBudget && budgetStatus.alertTriggered && (
+                    <View className="mb-6 rounded-2xl bg-red-500/10 border border-red-500/40 p-4 flex-row items-center">
+                        <AlertTriangle size={22} color="#ef4444" />
+                        <View className="ml-3 flex-1">
+                            <Text className="font-bold text-red-400">Budget Alert ⚠️</Text>
+                            <Text className="text-sm text-red-300 mt-0.5">
+                                You have used {budgetStatus.percentage}% of your monthly budget
+                                ({user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()} / {budgetStatus.limitAmount?.toLocaleString()}).
+                            </Text>
+                        </View>
+                    </View>
+                )}
+
+                {/* Budget Progress Bar (when budget is set but not yet triggered) */}
+                {budgetStatus.hasBudget && !budgetStatus.alertTriggered && (
+                    <View className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4">
+                        <View className="flex-row justify-between mb-2">
+                            <Text className="text-sm font-medium text-zinc-400">Monthly Budget</Text>
+                            <Text className="text-sm font-bold text-emerald-400">{budgetStatus.percentage}%</Text>
+                        </View>
+                        <View className="h-2 w-full rounded-full bg-zinc-800">
+                            <View
+                                style={{ width: `${Math.min(budgetStatus.percentage ?? 0, 100)}%` }}
+                                className="h-2 rounded-full bg-emerald-500"
+                            />
+                        </View>
+                        <Text className="text-xs text-zinc-500 mt-2">
+                            {user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()} / {budgetStatus.limitAmount?.toLocaleString()} spent
+                        </Text>
+                    </View>
+                )}
 
                 {/* Big Wallet Card */}
                 <View className="mb-8 rounded-3xl bg-emerald-600 p-6 shadow-xl shadow-emerald-500/20">
@@ -190,3 +242,4 @@ export default function Dashboard() {
         </SafeAreaView>
     );
 }
+
