@@ -90,14 +90,14 @@ export class BudgetsService {
     const alertTriggered = percentage >= alertThreshold;
 
     return {
-      hasBudget: true,
+      hasBudget: !!budget,
       period,
       limitAmount,
       totalSpent,
       percentage,
       alertThreshold,
-      alertTriggered,
+      alertTriggered: percentage >= alertThreshold,
+      debug: { userId, period }
     };
   }
 }
-

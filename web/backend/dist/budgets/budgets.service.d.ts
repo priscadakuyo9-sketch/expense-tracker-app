@@ -17,6 +17,7 @@ export declare class BudgetsService {
         percentage?: undefined;
         alertThreshold?: undefined;
         alertTriggered?: undefined;
+        debug?: undefined;
     } | {
         hasBudget: boolean;
         period: string;
@@ -25,5 +26,9 @@ export declare class BudgetsService {
         percentage: number;
         alertThreshold: any;
         alertTriggered: boolean;
+        debug: {
+            userId: string;
+            period: string;
+        };
     }>;
 }

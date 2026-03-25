@@ -78,13 +78,14 @@ let BudgetsService = class BudgetsService {
         const percentage = limitAmount > 0 ? Math.round((totalSpent / limitAmount) * 100) : 0;
         const alertTriggered = percentage >= alertThreshold;
         return {
-            hasBudget: true,
+            hasBudget: !!budget,
             period,
             limitAmount,
             totalSpent,
             percentage,
             alertThreshold,
-            alertTriggered,
+            alertTriggered: percentage >= alertThreshold,
+            debug: { userId, period }
         };
     }
 };
