@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, RefreshControl } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, RefreshControl, ActivityIndicator } from 'react-native';
 import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, AlertTriangle, Settings } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
@@ -235,21 +235,21 @@ export default function Dashboard() {
 
                 <View className="space-y-4">
                     {expenses.length > 0 ? expenses.slice(0, 10).map((expense: ExpenseItem) => (
-                        <View key={expense._id} className="mb-3 flex-row items-center justify-between rounded-2xl bg-zinc-900/50 p-4 border border-zinc-800/50">
+                        <View key={expense._id} className="mb-3 flex-row items-center justify-between rounded-3xl bg-zinc-900/40 p-5 border border-zinc-800/50">
                             <View className="flex-row items-center">
-                                <View className="mr-4 h-12 w-12 items-center justify-center rounded-full bg-zinc-800">
+                                <View className="mr-4 h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800/50">
                                     {expense.categoryId?.icon ? (
-                                        <Text className="text-xl">{expense.categoryId.icon}</Text>
+                                        <Text className="text-2xl">{expense.categoryId.icon}</Text>
                                     ) : (
-                                        <ArrowDownRight size={20} color="#10b981" />
+                                        <ArrowDownRight size={24} color="#10b981" />
                                     )}
                                 </View>
                                 <View>
-                                    <Text className="font-bold text-black">{expense.description || expense.categoryId?.name || 'Expense'}</Text>
-                                    <Text className="text-xs text-zinc-500">{new Date(expense.date).toLocaleDateString()}</Text>
+                                    <Text className="font-black text-white text-lg tracking-tight">{expense.description || expense.categoryId?.name || 'Expense'}</Text>
+                                    <Text className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">{new Date(expense.date).toLocaleDateString()}</Text>
                                 </View>
                             </View>
-                            <Text className="font-bold text-red-600">-{user?.currency || 'CFA'} {expense.amount.toLocaleString()}</Text>
+                            <Text className="font-black text-red-500 text-lg">-{user?.currency || 'CFA'} {expense.amount.toLocaleString()}</Text>
                         </View>
                     )) : (
                         <View className="items-center py-10">
