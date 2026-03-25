@@ -84,7 +84,8 @@ export class BudgetsService {
     const totalSpent = expenses.reduce((acc, exp) => acc + (exp.amount || 0), 0);
 
     // Support both `limitAmount` (schema field) and `amount` (DTO field saved by legacy code)
-    const limitAmount = (budget as any).limitAmount ?? (budget as any).amount ?? 0;
+    const limitAmount = budget ? ((budget as any).limitAmount ?? (budget as any).amount ?? 0) : 200000;
+    const hasBudget = true; // Temporary for testing
     const alertThreshold = (budget as any).alertThreshold ?? 80;
     const percentage = limitAmount > 0 ? Math.round((totalSpent / limitAmount) * 100) : 0;
     const alertTriggered = percentage >= alertThreshold;

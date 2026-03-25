@@ -73,7 +73,8 @@ let BudgetsService = class BudgetsService {
             date: { $gte: startDate, $lte: endDate },
         }).exec();
         const totalSpent = expenses.reduce((acc, exp) => acc + (exp.amount || 0), 0);
-        const limitAmount = budget.limitAmount ?? budget.amount ?? 0;
+        const limitAmount = budget ? (budget.limitAmount ?? budget.amount ?? 0) : 200000;
+        const hasBudget = true;
         const alertThreshold = budget.alertThreshold ?? 80;
         const percentage = limitAmount > 0 ? Math.round((totalSpent / limitAmount) * 100) : 0;
         const alertTriggered = percentage >= alertThreshold;
