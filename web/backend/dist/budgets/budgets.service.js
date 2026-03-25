@@ -63,8 +63,8 @@ let BudgetsService = class BudgetsService {
         if (!budget) {
             return { hasBudget: false };
         }
-        const startDate = new Date(now.getFullYear(), now.getMonth(), 1);
-        const endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59);
+        const startDate = new Date(Date.UTC(now.getFullYear(), now.getMonth(), 1, 0, 0, 0));
+        const endDate = new Date(Date.UTC(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999));
         const result = await this.expenseModel.aggregate([
             {
                 $match: {

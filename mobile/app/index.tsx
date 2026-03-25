@@ -110,6 +110,7 @@ export default function Dashboard() {
         >
             <ScrollView
                 className="flex-1 px-4 py-6"
+                contentContainerStyle={{ paddingBottom: 100 }}
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#10b981" />
                 }
@@ -117,10 +118,10 @@ export default function Dashboard() {
                 {/* Header */}
                 <View className="mb-8 flex-row items-center justify-between">
                     <View>
-                        <Text className="text-3xl font-bold text-white">
+                        <Text className="text-3xl font-bold text-black">
                             Hello, <Text className="text-emerald-500">{user?.name?.split(' ')[0]}</Text>
                         </Text>
-                        <Text className="text-zinc-400">Total spending this month</Text>
+                        <Text className="text-zinc-500">Total spending this month</Text>
                     </View>
                     <View className="flex-row items-center gap-3">
                         <TouchableOpacity
@@ -146,8 +147,8 @@ export default function Dashboard() {
                     >
                         <AlertTriangle size={22} color="#ef4444" />
                         <View className="ml-3 flex-1">
-                            <Text className="font-bold text-red-400">Budget Alert ⚠️</Text>
-                            <Text className="text-sm text-red-300 mt-0.5">
+                            <Text className="font-bold text-red-600">Budget Alert ⚠️</Text>
+                            <Text className="text-sm text-red-500 mt-0.5">
                                 You have used {budgetStatus.percentage}% of your monthly budget
                                 ({user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()} / {budgetStatus.limitAmount?.toLocaleString()}).
                             </Text>
@@ -222,7 +223,7 @@ export default function Dashboard() {
 
                 {/* Recent Transactions */}
                 <View className="mb-6 flex-row items-center justify-between">
-                    <Text className="text-xl font-bold text-white">Recent Activity</Text>
+                    <Text className="text-xl font-bold text-black">Recent Activity</Text>
                     <TouchableOpacity onPress={() => router.push('/expenses')}>
                         <Text className="text-emerald-500 font-medium">See All</Text>
                     </TouchableOpacity>
@@ -240,11 +241,11 @@ export default function Dashboard() {
                                     )}
                                 </View>
                                 <View>
-                                    <Text className="font-bold text-white">{expense.description || expense.categoryId?.name || 'Expense'}</Text>
+                                    <Text className="font-bold text-black">{expense.description || expense.categoryId?.name || 'Expense'}</Text>
                                     <Text className="text-xs text-zinc-500">{new Date(expense.date).toLocaleDateString()}</Text>
                                 </View>
                             </View>
-                            <Text className="font-bold text-red-500">-{user?.currency || 'CFA'} {expense.amount.toLocaleString()}</Text>
+                            <Text className="font-bold text-red-600">-{user?.currency || 'CFA'} {expense.amount.toLocaleString()}</Text>
                         </View>
                     )) : (
                         <View className="items-center py-10">

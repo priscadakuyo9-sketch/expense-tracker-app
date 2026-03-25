@@ -136,15 +136,10 @@ export default function NewExpense() {
                     </View>
                 </View>
 
-                <View className="h-20" />
-            </ScrollView>
-
-            {/* Bottom Button */}
-            <View className="p-6 pb-10">
                 <TouchableOpacity
                     onPress={handleSave}
                     disabled={loading}
-                    className="h-16 flex-row items-center justify-center rounded-3xl bg-emerald-500 shadow-xl shadow-emerald-500/20"
+                    className="mt-6 h-16 flex-row items-center justify-center rounded-3xl bg-emerald-500 shadow-xl shadow-emerald-500/20"
                 >
                     {loading ? (
                         <ActivityIndicator color="white" />
@@ -155,7 +150,9 @@ export default function NewExpense() {
                         </>
                     )}
                 </TouchableOpacity>
-            </View>
+
+                <View className="h-20" />
+            </ScrollView>
         </SafeAreaView>
     );
 }

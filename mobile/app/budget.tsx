@@ -81,7 +81,10 @@ export default function BudgetScreen() {
 
     return (
         <SafeAreaView className="flex-1 bg-zinc-950">
-            <ScrollView className="flex-1 px-6">
+            <ScrollView 
+                className="flex-1 px-6"
+                contentContainerStyle={{ paddingBottom: 60 }}
+            >
                 {/* Header */}
                 <View className="flex-row items-center justify-between py-6">
                     <TouchableOpacity 
