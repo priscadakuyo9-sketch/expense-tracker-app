@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, ScrollView, ActivityIndicator } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import { Wallet, User, Mail, Lock, ArrowRight } from 'lucide-react-native';
 import * as SecureStore from 'expo-secure-store';

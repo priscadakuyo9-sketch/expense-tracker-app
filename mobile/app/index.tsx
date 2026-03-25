@@ -105,8 +105,7 @@ export default function Dashboard() {
 
     return (
         <SafeAreaView
-            className="flex-1 bg-white"
-            style={{ flex: 1, backgroundColor: '#ffffff' }}
+            className="flex-1 bg-[#09090b]"
         >
             <ScrollView
                 className="flex-1 px-4 py-6"
@@ -118,74 +117,77 @@ export default function Dashboard() {
                 {/* Header */}
                 <View className="mb-8 flex-row items-center justify-between">
                     <View>
-                        <Text className="text-4xl font-black text-black tracking-tighter">
-                            Hello, <Text className="text-emerald-600 font-black">{user?.name?.split(' ')[0]}</Text>
+                        <Text className="text-4xl font-black text-white tracking-tighter">
+                            Hello, <Text className="text-emerald-500 font-black">{user?.name?.split(' ')[0]}</Text>
                         </Text>
-                        <Text className="text-zinc-500 font-medium uppercase tracking-[0.2em] text-[10px] mt-1">Portfolio Overview</Text>
+                        <Text className="text-zinc-500 font-medium uppercase tracking-[0.2em] text-[10px] mt-1">Global Portfolio</Text>
                     </View>
                     <View className="flex-row items-center gap-3">
                         <TouchableOpacity
                             onPress={() => router.push('/budget')}
-                            className="h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 border border-zinc-200"
+                            className="h-12 w-12 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800"
                         >
-                            <Settings size={20} color="#71717a" />
+                            <Settings size={20} color="#a1a1aa" />
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={handleLogout}
-                            className="h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50"
+                            className="h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10"
                         >
-                            <LogOut size={20} color="#059669" />
+                            <LogOut size={20} color="#10b981" />
                         </TouchableOpacity>
                     </View>
                 </View>
 
-                {/* Budget Alert Banner */}
-                {budgetStatus.hasBudget && budgetStatus.alertTriggered && (
+                {/* Budget Progress Card (Premium Overhaul) */}
+                {budgetStatus.hasBudget ? (
                     <TouchableOpacity 
                         onPress={() => router.push('/budget')}
-                        className="mb-6 rounded-2xl bg-red-500/10 border border-red-500/40 p-4 flex-row items-center"
+                        className={`mb-8 rounded-[32px] border ${budgetStatus.alertTriggered ? 'border-red-500/30' : 'border-emerald-500/20'} bg-zinc-900/50 p-6 shadow-2xl overflow-hidden relative`}
                     >
-                        <AlertTriangle size={22} color="#ef4444" />
-                        <View className="ml-3 flex-1">
-                            <Text className="font-bold text-red-600">Budget Alert ⚠️</Text>
-                            <Text className="text-sm text-red-500 mt-0.5">
-                                You have used {budgetStatus.percentage}% of your monthly budget
-                                ({user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()} / {budgetStatus.limitAmount?.toLocaleString()}).
-                            </Text>
+                        <View className="absolute top-0 right-0 p-4 opacity-5">
+                            <TrendingUp size={60} color="white" />
                         </View>
-                    </TouchableOpacity>
-                )}
-
-                {/* Budget Progress Bar (when budget is set but not yet triggered) */}
-                {budgetStatus.hasBudget && !budgetStatus.alertTriggered && (
-                    <TouchableOpacity 
-                        onPress={() => router.push('/budget')}
-                        className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4"
-                    >
-                        <View className="flex-row justify-between mb-2">
-                            <Text className="text-sm font-medium text-zinc-400">Monthly Budget</Text>
-                            <Text className="text-sm font-bold text-emerald-400">{budgetStatus.percentage}%</Text>
+                        <View className="flex-row justify-between items-center mb-4 relative z-10">
+                            <View>
+                                <Text className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Monthly Budget</Text>
+                                <Text className="text-2xl font-black text-white mt-1">Limit Review</Text>
+                            </View>
+                            <View className="items-end">
+                                <Text className={`text-3xl font-black ${budgetStatus.alertTriggered ? 'text-red-500' : 'text-emerald-500'}`}>{budgetStatus.percentage}%</Text>
+                                <Text className="text-zinc-500 font-bold uppercase tracking-tighter text-[8px]">Utilized</Text>
+                            </View>
                         </View>
-                        <View className="h-2 w-full rounded-full bg-zinc-800">
+                        
+                        <View className="h-4 w-full rounded-full bg-zinc-900 border border-zinc-800/50 overflow-hidden mb-6">
                             <View
                                 style={{ width: `${Math.min(budgetStatus.percentage ?? 0, 100)}%` }}
-                                className="h-2 rounded-full bg-emerald-500"
+                                className={`h-full rounded-full ${budgetStatus.alertTriggered ? 'bg-red-500 shadow-lg' : 'bg-emerald-500 shadow-lg'}`}
                             />
                         </View>
-                        <Text className="text-xs text-zinc-500 mt-2">
-                            {user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()} / {budgetStatus.limitAmount?.toLocaleString()} spent
-                        </Text>
-                    </TouchableOpacity>
-                )}
 
-                {!budgetStatus.hasBudget && (
+                        <View className="flex-row justify-between items-end">
+                           <View>
+                               <Text className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Spent</Text>
+                               <Text className="text-lg font-black text-white">{user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()}</Text>
+                           </View>
+                           <View className="items-end">
+                               <Text className="text-[8px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Remaining</Text>
+                               <Text className="text-lg font-black text-zinc-400">{user?.currency || 'CFA'} {((budgetStatus.limitAmount || 0) - (budgetStatus.totalSpent || 0)).toLocaleString()}</Text>
+                           </View>
+                        </View>
+                    </TouchableOpacity>
+                ) : (
                     <TouchableOpacity 
                         onPress={() => router.push('/budget')}
-                        className="mb-6 rounded-2xl border border-dashed border-zinc-800 bg-zinc-900/20 p-4 items-center"
+                        className="mb-8 rounded-[32px] border-2 border-dashed border-zinc-800 bg-zinc-900/20 p-8 items-center justify-center"
                     >
-                        <Text className="text-zinc-500 text-sm font-medium">+ Set monthly budget limit</Text>
+                        <View className="h-10 w-10 items-center justify-center rounded-xl bg-zinc-800 mb-3">
+                            <Plus size={20} color="#71717a" />
+                        </View>
+                        <Text className="text-zinc-400 text-sm font-bold uppercase tracking-widest">Set monthly budget limit</Text>
                     </TouchableOpacity>
                 )}
+ )}
 
                 {/* Big Wallet Card */}
                 <View className="mb-8 rounded-[40px] bg-emerald-600 p-8 shadow-2xl shadow-emerald-500/40 relative overflow-hidden">
@@ -226,9 +228,9 @@ export default function Dashboard() {
 
                 {/* Recent Transactions */}
                 <View className="mb-6 flex-row items-center justify-between">
-                    <Text className="text-xl font-bold text-black">Recent Activity</Text>
+                    <Text className="text-2xl font-black text-white tracking-tighter">Recent Activity</Text>
                     <TouchableOpacity onPress={() => router.push('/expenses')}>
-                        <Text className="text-emerald-500 font-medium">See All</Text>
+                        <Text className="text-emerald-500 font-bold uppercase tracking-widest text-[10px]">See All</Text>
                     </TouchableOpacity>
                 </View>
 
