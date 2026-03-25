@@ -59,9 +59,6 @@ export default function DashboardPage() {
             setStats(statsRes.data);
             setExpenses(expensesRes.data);
             setBudgetStatus(budgetRes.data);
-            console.log('[DASHBOARD] API URL:', process.env.NEXT_PUBLIC_API_URL || 'DEFAULT (LOCALHOST)');
-            console.log('[DASHBOARD] User ID:', JSON.parse(localStorage.getItem('user') || '{}').id);
-            console.log('[DASHBOARD] Budget Data:', budgetRes.data);
 
             // Format trend data for chart
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -135,7 +132,10 @@ export default function DashboardPage() {
 
                 {/* Budget Progress Card (Visible if budget set) */}
                 {budgetStatus.hasBudget && (
-                    <Card className="mb-10 border-emerald-500/20 bg-[#09090b]/40 backdrop-blur-xl overflow-hidden relative group shadow-2xl shadow-emerald-500/5">
+                    <Card 
+                        onClick={() => router.push('/budgets')}
+                        className="mb-10 cursor-pointer border-emerald-500/20 bg-[#09090b]/40 backdrop-blur-xl overflow-hidden relative group shadow-2xl shadow-emerald-500/5 hover:border-emerald-500/40 transition-all active:scale-[0.99]"
+                    >
                         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-emerald-500/5 opacity-50 group-hover:opacity-100 transition-all duration-700" />
                         <CardHeader className="flex flex-row items-center justify-between relative z-10">
                             <div>

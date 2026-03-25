@@ -118,23 +118,23 @@ export default function Dashboard() {
                 {/* Header */}
                 <View className="mb-8 flex-row items-center justify-between">
                     <View>
-                        <Text className="text-3xl font-bold text-black">
-                            Hello, <Text className="text-emerald-500">{user?.name?.split(' ')[0]}</Text>
+                        <Text className="text-4xl font-black text-black tracking-tighter">
+                            Hello, <Text className="text-emerald-600 font-black">{user?.name?.split(' ')[0]}</Text>
                         </Text>
-                        <Text className="text-zinc-500">Total spending this month</Text>
+                        <Text className="text-zinc-500 font-medium uppercase tracking-[0.2em] text-[10px] mt-1">Portfolio Overview</Text>
                     </View>
                     <View className="flex-row items-center gap-3">
                         <TouchableOpacity
                             onPress={() => router.push('/budget')}
-                            className="h-12 w-12 items-center justify-center rounded-full bg-zinc-800"
+                            className="h-12 w-12 items-center justify-center rounded-2xl bg-zinc-100 border border-zinc-200"
                         >
-                            <Settings size={20} color="#a1a1aa" />
+                            <Settings size={20} color="#71717a" />
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={handleLogout}
-                            className="h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10"
+                            className="h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50"
                         >
-                            <LogOut size={20} color="#10b981" />
+                            <LogOut size={20} color="#059669" />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -188,22 +188,25 @@ export default function Dashboard() {
                 )}
 
                 {/* Big Wallet Card */}
-                <View className="mb-8 rounded-3xl bg-emerald-600 p-6 shadow-xl shadow-emerald-500/20">
-                    <View className="flex-row items-center justify-between">
+                <View className="mb-8 rounded-[40px] bg-emerald-600 p-8 shadow-2xl shadow-emerald-500/40 relative overflow-hidden">
+                    <View className="absolute top-0 right-0 h-40 w-40 rounded-full bg-white/10 -mr-20 -mt-20" />
+                    <View className="flex-row items-center justify-between relative z-10">
                         <View className="flex-row items-center">
-                            <View className="mr-3 h-10 w-10 items-center justify-center rounded-full bg-white/20">
+                            <View className="mr-3 h-10 w-10 items-center justify-center rounded-2xl bg-white/20">
                                 <Wallet size={20} color="white" />
                             </View>
-                            <Text className="text-lg font-medium text-white/80">Main Balance</Text>
+                            <Text className="text-[10px] font-bold text-white/70 uppercase tracking-[0.2em]">Total Spending</Text>
                         </View>
                         <TrendingUp size={24} color="white" />
                     </View>
-                    <Text className="mt-4 text-4xl font-bold text-white">
+                    <Text className="mt-6 text-5xl font-black text-white tracking-tighter relative z-10">
                         {user?.currency || 'CFA'} {totalSpent.toLocaleString()}
                     </Text>
-                    <View className="mt-4 flex-row items-center">
-                        <ArrowUpRight size={16} color="white" />
-                        <Text className="ml-1 text-sm font-medium text-white">+12% from last month</Text>
+                    <View className="mt-6 flex-row items-center relative z-10">
+                        <View className="bg-emerald-500/20 px-3 py-1 rounded-full flex-row items-center">
+                            <ArrowUpRight size={14} color="white" />
+                            <Text className="ml-1 text-[10px] font-bold text-white uppercase tracking-widest">Active Tracker</Text>
+                        </View>
                     </View>
                 </View>
 

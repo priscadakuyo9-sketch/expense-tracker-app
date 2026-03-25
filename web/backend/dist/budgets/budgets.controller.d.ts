@@ -16,7 +16,7 @@ export declare class BudgetsController {
     } | {
         hasBudget: boolean;
         period: string;
-        limitAmount: number;
+        limitAmount: any;
         totalSpent: number;
         percentage: number;
         alertThreshold: any;

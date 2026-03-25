@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://expense-tracker-app-biq1.onrender.com', // Force production for verification
+    baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://expense-tracker-app-biq1.onrender.com',
 });
 
 api.interceptors.request.use((config) => {

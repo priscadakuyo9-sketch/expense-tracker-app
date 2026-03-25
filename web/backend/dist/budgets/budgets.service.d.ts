@@ -20,7 +20,7 @@ export declare class BudgetsService {
     } | {
         hasBudget: boolean;
         period: string;
-        limitAmount: number;
+        limitAmount: any;
         totalSpent: number;
         percentage: number;
         alertThreshold: any;
