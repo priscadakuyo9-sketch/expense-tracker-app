@@ -25,6 +25,7 @@ export declare class BudgetsController {
         debug: {
             userId: string;
             period: string;
+            rawBudget: import("../schemas/budget.schema").Budget;
         };
     }>;
     findByPeriod(req: any, period: string): Promise<import("../schemas/budget.schema").Budget | null>;

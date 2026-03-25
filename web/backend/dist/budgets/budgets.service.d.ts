@@ -29,6 +29,7 @@ export declare class BudgetsService {
         debug: {
             userId: string;
             period: string;
+            rawBudget: Budget;
         };
     }>;
 }
