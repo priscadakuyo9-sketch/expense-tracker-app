@@ -132,33 +132,33 @@ export default function DashboardPage() {
 
                 {/* Budget Progress Card (Visible if budget set) */}
                 {budgetStatus.hasBudget && (
-                    <Card className="mb-10 border-zinc-800 bg-zinc-900/40 overflow-hidden relative group">
-                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <CardHeader className="flex flex-row items-center justify-between">
+                    <Card className="mb-10 border-emerald-500/20 bg-[#09090b]/40 backdrop-blur-xl overflow-hidden relative group shadow-2xl shadow-emerald-500/5">
+                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-emerald-500/5 opacity-50 group-hover:opacity-100 transition-all duration-700" />
+                        <CardHeader className="flex flex-row items-center justify-between relative z-10">
                             <div>
-                                <CardTitle className="text-xl font-bold text-white">Monthly Budget Status</CardTitle>
-                                <p className="text-xs text-zinc-500">Target spending control for {budgetStatus.period}</p>
+                                <CardTitle className="text-2xl font-black text-white tracking-tight">Monthly Budget Status</CardTitle>
+                                <p className="text-xs text-zinc-500 font-medium uppercase tracking-widest mt-1">Control for {budgetStatus.period}</p>
                             </div>
                             <div className="text-right">
-                                <span className="text-lg font-bold text-white">{budgetStatus.percentage}%</span>
-                                <p className="text-[10px] uppercase text-zinc-500 font-mono">Utilized</p>
+                                <span className={`text-3xl font-black ${budgetStatus.alertTriggered ? 'text-red-500' : 'text-emerald-500'}`}>{budgetStatus.percentage}%</span>
+                                <p className="text-[10px] uppercase text-zinc-500 font-bold tracking-tighter">Utilized</p>
                             </div>
                         </CardHeader>
-                        <CardContent>
-                            <div className="mb-4 h-3 w-full overflow-hidden rounded-full bg-zinc-800 border border-zinc-700/50">
+                        <CardContent className="relative z-10">
+                            <div className="mb-6 h-4 w-full overflow-hidden rounded-full bg-zinc-900 border border-zinc-800 shadow-inner">
                                 <div
-                                    className={`h-full transition-all duration-1000 ease-out ${budgetStatus.alertTriggered ? 'bg-red-500 shadow-[0_0_10px_rgba(239,44,44,0.3)]' : 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]'}`}
+                                    className={`h-full transition-all duration-1000 ease-out ${budgetStatus.alertTriggered ? 'bg-gradient-to-r from-red-600 to-rose-400 shadow-[0_0_20px_rgba(239,44,44,0.4)]' : 'bg-gradient-to-r from-emerald-600 to-teal-400 shadow-[0_0_20px_rgba(16,185,129,0.4)]'}`}
                                     style={{ width: `${Math.min(budgetStatus.percentage, 100)}%` }}
                                 />
                             </div>
                             <div className="flex justify-between items-end">
-                                <div>
-                                    <p className="text-xs text-zinc-500 mb-1">Total Spent</p>
-                                    <p className="text-xl font-bold text-white">{user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()}</p>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] uppercase text-zinc-500 font-bold tracking-widest">Spent</p>
+                                    <p className="text-2xl font-black text-white">{user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()}</p>
                                 </div>
-                                <div className="text-right">
-                                    <p className="text-xs text-zinc-500 mb-1">Budget Limit</p>
-                                    <p className="text-xl font-bold text-zinc-300">{user?.currency || 'CFA'} {budgetStatus.limitAmount?.toLocaleString()}</p>
+                                <div className="text-right space-y-1">
+                                    <p className="text-[10px] uppercase text-zinc-500 font-bold tracking-widest">Limit</p>
+                                    <p className="text-2xl font-black text-zinc-400">{user?.currency || 'CFA'} {budgetStatus.limitAmount?.toLocaleString()}</p>
                                 </div>
                             </div>
                         </CardContent>
@@ -167,41 +167,47 @@ export default function DashboardPage() {
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-10">
-                    <Card className="border-zinc-800 bg-zinc-900 px-2">
+                    <Card className="border-zinc-800/50 bg-zinc-900/40 backdrop-blur-md px-2 border-l-4 border-l-emerald-500 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Monthly Spending</CardTitle>
-                            <TrendingUp className="h-4 w-4 text-emerald-500" />
+                            <CardTitle className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Monthly Spending</CardTitle>
+                            <div className="h-8 w-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+                                <TrendingUp className="h-4 w-4 text-emerald-500" />
+                            </div>
                         </CardHeader>
                         <CardContent>
-                            <div className="text-3xl font-bold text-white mb-2">
+                            <div className="text-3xl font-black text-white mb-2 tracking-tighter">
                                 {user?.currency || 'CFA'} {totalSpent.toLocaleString()}
                             </div>
-                            <div className="flex items-center text-xs text-emerald-500 bg-emerald-500/10 w-fit px-2 py-1 rounded-full">
+                            <div className="flex items-center text-[10px] font-bold text-emerald-500 bg-emerald-500/10 w-fit px-3 py-1 rounded-full uppercase tracking-widest">
                                 <ArrowUpRight className="mr-1 h-3 w-3" />
-                                <span>+12.5% vs last month</span>
+                                <span>Organic Growth</span>
                             </div>
                         </CardContent>
                     </Card>
 
-                    <Card className="border-zinc-800 bg-zinc-900 px-2">
+                    <Card className="border-zinc-800/50 bg-zinc-900/40 backdrop-blur-md px-2 border-l-4 border-l-blue-500 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Categories</CardTitle>
-                            <PieChart className="h-4 w-4 text-zinc-400" />
+                            <CardTitle className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Categories</CardTitle>
+                            <div className="h-8 w-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                                <PieChart className="h-4 w-4 text-blue-500" />
+                            </div>
                         </CardHeader>
                         <CardContent>
-                            <div className="text-3xl font-bold text-white mb-2">{stats.length}</div>
-                            <p className="text-xs text-zinc-500">Active spending sectors</p>
+                            <div className="text-3xl font-black text-white mb-2 tracking-tighter">{stats.length}</div>
+                            <p className="text-[10px] uppercase text-zinc-500 font-bold tracking-widest">Active sectors</p>
                         </CardContent>
                     </Card>
 
-                    <Card className="border-zinc-800 bg-zinc-900 px-2">
+                    <Card className="border-zinc-800/50 bg-zinc-900/40 backdrop-blur-md px-2 border-l-4 border-l-amber-500 shadow-lg">
                         <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-xs font-semibold uppercase tracking-wider text-zinc-500">Transactions</CardTitle>
-                            <Calendar className="h-4 w-4 text-zinc-400" />
+                            <CardTitle className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">Transactions</CardTitle>
+                            <div className="h-8 w-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                                <Calendar className="h-4 w-4 text-amber-500" />
+                            </div>
                         </CardHeader>
                         <CardContent>
-                            <div className="text-3xl font-bold text-white mb-2">{expenses.length}</div>
-                            <p className="text-xs text-zinc-500">Lifetime records</p>
+                            <div className="text-3xl font-black text-white mb-2 tracking-tighter">{expenses.length}</div>
+                            <p className="text-[10px] uppercase text-zinc-500 font-bold tracking-widest">Records found</p>
                         </CardContent>
                     </Card>
                 </div>
