@@ -163,7 +163,51 @@ export default function BudgetScreen() {
                     )}
                 </TouchableOpacity>
 
+                {/* Demo Setup Button */}
+                <TouchableOpacity
+                    onPress={async () => {
+                        setSaving(true);
+                        try {
+                            const now = new Date();
+                            const period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+                            
+                            // 1. Set budget
+                            await api.post('/budgets', {
+                                amount: 200000,
+                                period,
+                                alertThreshold: 70
+                            });
+
+                            // 2. Add some test expenses (get a category first)
+                            const categoriesRes = await api.get('/categories');
+                            const catId = categoriesRes.data[0]?._id;
+
+                            if (catId) {
+                                await api.post('/expenses', {
+                                    amount: 155000,
+                                    description: 'Large Test Expense 🛍️',
+                                    date: new Date().toISOString(),
+                                    categoryId: catId,
+                                    paymentMethod: 'Mobile Money'
+                                });
+                            }
+
+                            Alert.alert('Success', 'Demo mode active: Budget set to 200k and alert triggered!', [
+                                { text: 'Great!', onPress: () => router.push('/') }
+                            ]);
+                        } catch (e) {
+                            Alert.alert('Error', 'Demo setup failed');
+                        } finally {
+                            setSaving(false);
+                        }
+                    }}
+                    className="mt-4 h-12 w-full items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/40"
+                >
+                    <Text className="text-zinc-500 font-medium">Configuration Démo (Auto)</Text>
+                </TouchableOpacity>
+
                 <View className="h-20" />
+
             </ScrollView>
         </SafeAreaView>
     );
