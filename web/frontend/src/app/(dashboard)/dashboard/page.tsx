@@ -130,8 +130,8 @@ export default function DashboardPage() {
                     </Button>
                 </div>
 
-                {/* Budget Progress Card (Visible if budget set) */}
-                {budgetStatus.hasBudget && (
+                {/* Budget Progress Card */}
+                {budgetStatus.hasBudget ? (
                     <Card 
                         onClick={() => router.push('/budgets')}
                         className="mb-10 cursor-pointer border-emerald-500/20 bg-[#09090b]/40 backdrop-blur-xl overflow-hidden relative group shadow-2xl shadow-emerald-500/5 hover:border-emerald-500/40 transition-all active:scale-[0.99]"
@@ -166,6 +166,17 @@ export default function DashboardPage() {
                             </div>
                         </CardContent>
                     </Card>
+                ) : (
+                    <div 
+                        onClick={() => router.push('/budgets')}
+                        className="mb-10 cursor-pointer border-2 border-dashed border-zinc-800 bg-zinc-900/20 rounded-3xl p-8 flex flex-col items-center justify-center group hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all"
+                    >
+                        <div className="h-12 w-12 rounded-2xl bg-zinc-800 flex items-center justify-center text-zinc-500 group-hover:text-emerald-500 group-hover:bg-emerald-500/10 mb-4 transition-all">
+                            <Plus size={24} />
+                        </div>
+                        <h3 className="text-lg font-bold text-zinc-400 group-hover:text-white transition-colors">Step 1: Set your monthly budget</h3>
+                        <p className="text-sm text-zinc-500 text-center mt-2 max-w-xs">Take control of your spending by defining a monthly target right now.</p>
+                    </div>
                 )}
 
                 {/* Stats Grid */}
