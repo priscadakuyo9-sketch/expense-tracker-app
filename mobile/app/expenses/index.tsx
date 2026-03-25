@@ -60,13 +60,13 @@ export default function ExpensesList() {
 
     return (
         <SafeAreaView className="flex-1 bg-[#09090b]">
-            <View className="flex-row items-center justify-between px-6 py-4">
-                <TouchableOpacity onPress={() => router.back()} className="h-10 w-10 items-center justify-center rounded-full bg-zinc-800">
+            <View className="flex-row items-center justify-between px-6 py-6 border-b border-zinc-900/50">
+                <TouchableOpacity onPress={() => router.back()} className="h-12 w-12 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800">
                     <ArrowLeft size={20} color="white" />
                 </TouchableOpacity>
-                <Text className="text-xl font-bold text-white">All Transactions</Text>
-                <TouchableOpacity className="h-10 w-10 items-center justify-center rounded-full bg-zinc-800">
-                    <Filter size={18} color="#a1a1aa" />
+                <Text className="text-2xl font-black text-white tracking-tighter">History</Text>
+                <TouchableOpacity className="h-12 w-12 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800">
+                    <Filter size={18} color="#10b981" />
                 </TouchableOpacity>
             </View>
 
@@ -79,24 +79,26 @@ export default function ExpensesList() {
                 <View className="py-4">
                     {expenses.length > 0 ? (
                         expenses.map((expense) => (
-                            <View key={expense._id} className="mb-4 flex-row items-center justify-between rounded-2xl bg-zinc-900/50 p-4 border border-zinc-800/50">
+                            <View key={expense._id} className="mb-4 flex-row items-center justify-between rounded-[28px] bg-zinc-900/40 p-5 border border-zinc-800/50">
                                 <View className="flex-row items-center">
-                                    <View className="mr-4 h-12 w-12 items-center justify-center rounded-full bg-zinc-800">
+                                    <View className="mr-4 h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800/50 border border-zinc-800/50">
                                         {expense.categoryId?.icon ? (
-                                            <Text className="text-xl">{expense.categoryId.icon}</Text>
+                                            <Text className="text-2xl">{expense.categoryId.icon}</Text>
                                         ) : (
-                                            <ArrowDownRight size={20} color="#10b981" />
+                                            <ArrowDownRight size={24} color="#10b981" />
                                         )}
                                     </View>
                                     <View>
-                                        <Text className="font-bold text-white">{expense.description || expense.categoryId?.name || 'Expense'}</Text>
-                                        <View className="flex-row items-center mt-1">
-                                            <Text className="text-xs text-zinc-500 mr-2">{new Date(expense.date).toLocaleDateString()}</Text>
-                                            <Text className="text-[10px] bg-zinc-800 px-2 py-0.5 rounded-full text-zinc-400 capitalize">{expense.paymentMethod}</Text>
+                                        <Text className="font-black text-white text-lg tracking-tight">{expense.description || expense.categoryId?.name || 'Expense'}</Text>
+                                        <View className="flex-row items-center mt-1.5">
+                                            <Text className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mr-3">{new Date(expense.date).toLocaleDateString()}</Text>
+                                            <View className="bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/10">
+                                                <Text className="text-[8px] font-black text-emerald-500 uppercase tracking-tighter">{expense.paymentMethod}</Text>
+                                            </View>
                                         </View>
                                     </View>
                                 </View>
-                                <Text className="font-bold text-red-500">-{currency} {expense.amount.toLocaleString()}</Text>
+                                <Text className="font-black text-red-500 text-lg">-{currency} {expense.amount.toLocaleString()}</Text>
                             </View>
                         ))
                     ) : (

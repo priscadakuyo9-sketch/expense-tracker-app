@@ -80,7 +80,7 @@ export default function BudgetScreen() {
     }
 
     return (
-        <SafeAreaView className="flex-1 bg-zinc-950">
+        <SafeAreaView className="flex-1 bg-[#09090b]">
             <ScrollView 
                 className="flex-1 px-6"
                 contentContainerStyle={{ paddingBottom: 60 }}
@@ -98,27 +98,33 @@ export default function BudgetScreen() {
                 </View>
 
                 {/* Summary Card */}
-                <View className="mb-8 rounded-3xl bg-emerald-600/10 border border-emerald-500/20 p-6">
-                    <View className="flex-row items-center mb-2">
-                        <Wallet size={20} color="#10b981" />
-                        <Text className="ml-2 text-emerald-500 font-medium">Monthly Target</Text>
+                <View className="mb-10 rounded-[32px] bg-emerald-500/10 border border-emerald-500/20 p-8 shadow-2xl relative overflow-hidden">
+                    <View className="absolute top-0 right-0 p-4 opacity-5">
+                        <Wallet size={80} color="white" />
                     </View>
-                    <Text className="text-zinc-400 text-sm leading-5">
-                        Define how much you want to spend this month. We'll track your expenses and notify you when you reach your limit.
+                    <View className="flex-row items-center mb-4 relative z-10">
+                        <View className="h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/20">
+                            <Wallet size={20} color="#10b981" />
+                        </View>
+                        <Text className="ml-3 text-[10px] font-bold text-emerald-500 uppercase tracking-widest">Efficiency Goal</Text>
+                    </View>
+                    <Text className="text-white text-lg font-black tracking-tight mb-2 relative z-10">Define your monthly limits</Text>
+                    <Text className="text-zinc-500 text-xs font-medium leading-5 relative z-10">
+                        We'll track your expenses in real-time and alert you once you reach your custom threshold.
                     </Text>
                 </View>
 
                 {/* Form */}
-                <View className="space-y-6">
+                <View className="space-y-8">
                     {/* Amount Input */}
                     <View>
-                        <Text className="text-zinc-400 text-sm font-medium mb-3 ml-1">Budget Amount ({user?.currency || 'CFA'})</Text>
-                        <View className="flex-row items-center rounded-2xl bg-zinc-900 border border-zinc-800 p-4 focus:border-emerald-500">
-                            <DollarSign size={20} color="#71717a" />
+                        <Text className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1 mb-3">Target Amount ({user?.currency || 'CFA'})</Text>
+                        <View className="flex-row items-center rounded-[28px] bg-zinc-900/50 border border-zinc-800 px-6 py-6 shadow-sm">
+                            <Text className="text-2xl font-black text-emerald-500 mr-4">CFA</Text>
                             <TextInput
-                                className="flex-1 ml-3 text-white text-lg font-bold"
-                                placeholder="0.00"
-                                placeholderTextColor="#3f3f46"
+                                className="flex-1 text-white text-3xl font-black tracking-tighter"
+                                placeholder="0"
+                                placeholderTextColor="#18181b"
                                 keyboardType="numeric"
                                 value={amount}
                                 onChangeText={setAmount}
@@ -129,40 +135,46 @@ export default function BudgetScreen() {
                     {/* Alert Threshold Input */}
                     <View>
                         <View className="flex-row items-center justify-between mb-3 ml-1">
-                            <Text className="text-zinc-400 text-sm font-medium">Alert Threshold (%)</Text>
-                            <Text className="text-emerald-500 text-sm font-bold">{threshold}%</Text>
+                            <Text className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Alert Threshold</Text>
+                            <View className="bg-emerald-500/10 px-3 py-1 rounded-full">
+                                <Text className="text-emerald-500 text-[10px] font-black">{threshold}%</Text>
+                            </View>
                         </View>
-                        <View className="flex-row items-center rounded-2xl bg-zinc-900 border border-zinc-800 p-4">
-                            <Bell size={20} color="#71717a" />
+                        <View className="flex-row items-center rounded-[28px] bg-zinc-900/50 border border-zinc-800 px-6 py-5">
+                            <Bell size={20} color="#059669" />
                             <TextInput
-                                className="flex-1 ml-3 text-white text-lg font-bold"
+                                className="flex-1 ml-4 text-white text-xl font-bold"
                                 placeholder="80"
-                                placeholderTextColor="#3f3f46"
+                                placeholderTextColor="#18181b"
                                 keyboardType="numeric"
                                 value={threshold}
                                 onChangeText={setThreshold}
                                 maxLength={3}
                             />
                         </View>
-                        <Text className="text-zinc-500 text-xs mt-3 leading-4">
-                            You will see a warning on your dashboard once you've spent {threshold}% of your budget.
-                        </Text>
+                        <View className="mt-4 flex-row items-start px-1">
+                            <Bell size={12} color="#71717a" className="mt-1" />
+                            <Text className="ml-2 text-zinc-500 text-[10px] font-medium leading-4 flex-1">
+                                Receive a priority notification on your dashboard when usage exceeds {threshold}% of your total portfolio.
+                            </Text>
+                        </View>
                     </View>
                 </View>
 
                 {/* Save Button */}
+                {/* Save Button */}
                 <TouchableOpacity
                     onPress={handleSave}
                     disabled={saving}
-                    className={`mt-10 h-16 w-full flex-row items-center justify-center rounded-2xl bg-emerald-500 shadow-lg shadow-emerald-500/30 ${saving ? 'opacity-70' : ''}`}
+                    className={`mt-12 h-20 w-full flex-row items-center justify-center rounded-[30px] bg-emerald-600 shadow-2xl shadow-emerald-500/40 active:scale-[0.98] transition-all ${saving ? 'opacity-70' : ''}`}
                 >
                     {saving ? (
                         <ActivityIndicator color="#fff" />
                     ) : (
-                        <>
-                            <Save size={20} color="#fff" />
-                            <Text className="ml-2 text-lg font-bold text-white">Save Budget</Text>
-                        </>
+                        <View className="flex-row items-center">
+                            <Save size={24} color="#fff" className="mr-3" />
+                            <Text className="text-xl font-black text-white tracking-tight">Sync New Limits</Text>
+                        </View>
                     )}
                 </TouchableOpacity>
 
