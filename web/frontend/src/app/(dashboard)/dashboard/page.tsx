@@ -95,30 +95,8 @@ export default function DashboardPage() {
     const totalSpent = stats.reduce((acc: number, item: any) => acc + item.totalAmount, 0);
 
     return (
-        <div className="min-h-screen bg-[#09090b] text-zinc-100 selection:bg-emerald-500/30">
-            {/* Header / Nav */}
-            <nav className="sticky top-0 z-50 border-b border-zinc-800 bg-[#09090b]/80 backdrop-blur-md">
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center space-x-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 shadow-lg shadow-emerald-500/20">
-                            <Wallet className="h-6 w-6 text-white" />
-                        </div>
-                        <span className="text-xl font-bold tracking-tight text-white">Expense<span className="text-emerald-500">Tracker</span></span>
-                    </div>
-                    <div className="flex items-center space-x-6">
-                        <div className="hidden flex-col items-end sm:flex">
-                            <span className="text-sm font-medium text-white">{user?.name}</span>
-                            <span className="text-xs text-zinc-400 font-mono opacity-50 uppercase tracking-tighter">Premium</span>
-                        </div>
-                        <Button variant="ghost" size="icon" onClick={handleLogout} className="rounded-full hover:bg-zinc-800 hover:text-white">
-                            <LogOut className="h-5 w-5" />
-                        </Button>
-                    </div>
-                </div>
-            </nav>
-
-            <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-                {/* Budget Alert Banner */}
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+            {/* Budget Alert Banner */}
                 {budgetStatus.hasBudget && budgetStatus.alertTriggered && (
                     <div 
                         onClick={() => router.push('/budgets')}
@@ -382,7 +360,6 @@ export default function DashboardPage() {
                         </CardContent>
                     </Card>
                 </div>
-            </main>
         </div>
     );
 }

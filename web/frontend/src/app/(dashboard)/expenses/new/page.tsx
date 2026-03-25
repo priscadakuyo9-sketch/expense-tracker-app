@@ -82,7 +82,7 @@ export default function NewExpensePage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#09090b] text-zinc-100 p-4 md:p-8">
+        <div className="p-4 md:p-8">
             <div className="mx-auto max-w-2xl">
                 <Button
                     variant="ghost"
@@ -177,9 +177,6 @@ export default function NewExpensePage() {
                     </form>
                 </div>
             </div>
-            {/* Background Blur Effects */}
-            <div className="fixed -top-24 -left-24 -z-10 h-96 w-96 rounded-full bg-emerald-500/5 blur-[120px]" />
-            <div className="fixed -bottom-24 -right-24 -z-10 h-96 w-96 rounded-full bg-emerald-500/5 blur-[120px]" />
         </div>
     );
 }

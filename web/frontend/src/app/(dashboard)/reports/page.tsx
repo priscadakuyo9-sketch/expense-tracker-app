@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import api from '@/lib/api';
 
-const COLORS = ['#4f46e5', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
+const COLORS = ['#10b981', '#3b82f6', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
 
 export default function ReportsPage() {
     const router = useRouter();
@@ -34,28 +34,47 @@ export default function ReportsPage() {
     if (loading) return <div className="flex h-screen items-center justify-center">Loading reports...</div>;
 
     return (
-        <div className="min-h-screen bg-slate-50 p-4 md:p-8">
+        <div className="p-4 md:p-8 selection:bg-emerald-500/30">
             <div className="mx-auto max-w-4xl">
-                <Button variant="ghost" className="mb-6" onClick={() => router.back()}>
+                <Button variant="ghost" className="mb-6 text-zinc-400 hover:text-white" onClick={() => router.back()}>
                     <ArrowLeft className="mr-2 h-5 w-5" />
-                    Back
+                    Back to Dashboard
                 </Button>
 
-                <h1 className="mb-8 text-3xl font-bold text-slate-900">Spending Analysis</h1>
+                <div className="mb-10">
+                    <h1 className="text-4xl font-extrabold tracking-tight text-white mb-2">Spending Analysis</h1>
+                    <p className="text-zinc-400 text-sm">Detailed visual breakdown of your financial activities.</p>
+                </div>
 
                 <div className="grid grid-cols-1 gap-8">
-                    <Card>
-                        <CardHeader>
-                            <CardTitle>Monthly Breakdown by Category</CardTitle>
+                    <Card className="border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
+                        <CardHeader className="flex flex-row items-center justify-between">
+                            <CardTitle className="text-xl font-bold text-white">Monthly Breakdown by Category</CardTitle>
+                            <BarChart2 className="h-5 w-5 text-emerald-500" />
                         </CardHeader>
-                        <CardContent className="h-[400px]">
+                        <CardContent className="h-[400px] pt-6">
                             <ResponsiveContainer width="100%" height="100%">
                                 <BarChart data={stats}>
-                                    <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                                    <XAxis dataKey="categoryName" />
-                                    <YAxis />
-                                    <Tooltip />
-                                    <Bar dataKey="totalAmount" radius={[4, 4, 0, 0]}>
+                                    <CartesianGrid strokeDasharray="3 3" stroke="#27272a" vertical={false} />
+                                    <XAxis 
+                                        dataKey="categoryName" 
+                                        stroke="#71717a" 
+                                        fontSize={12} 
+                                        tickLine={false} 
+                                        axisLine={false} 
+                                    />
+                                    <YAxis 
+                                        stroke="#71717a" 
+                                        fontSize={12} 
+                                        tickLine={false} 
+                                        axisLine={false} 
+                                        tickFormatter={(val) => `${val}`}
+                                    />
+                                    <Tooltip 
+                                        contentStyle={{ backgroundColor: '#18181b', border: '1px solid #27272a', borderRadius: '8px' }}
+                                        labelStyle={{ color: '#fff', fontWeight: 'bold', marginBottom: '4px' }}
+                                    />
+                                    <Bar dataKey="totalAmount" radius={[6, 6, 0, 0]}>
                                         {stats.map((entry: any, index: number) => (
                                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                         ))}
@@ -65,26 +84,30 @@ export default function ReportsPage() {
                         </CardContent>
                     </Card>
 
-                    <Card>
+                    <Card className="border-zinc-800 bg-zinc-900/50">
                         <CardHeader>
-                            <CardTitle>Summary Data</CardTitle>
+                            <CardTitle className="text-xl font-bold text-white">Detailed Summary</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className="overflow-x-auto">
-                                <table className="w-full text-left text-sm text-slate-500">
-                                    <thead className="bg-slate-50 text-xs uppercase text-slate-700">
+                            <div className="overflow-x-auto rounded-xl border border-zinc-800">
+                                <table className="w-full text-left text-sm text-zinc-400">
+                                    <thead className="bg-zinc-800/50 text-xs font-bold uppercase tracking-widest text-zinc-500">
                                         <tr>
-                                            <th className="px-6 py-3">Category</th>
-                                            <th className="px-6 py-3 text-right">Amount</th>
-                                            <th className="px-6 py-3 text-right">Transactions</th>
+                                            <th className="px-6 py-4">Category</th>
+                                            <th className="px-6 py-4 text-right">Total Amount</th>
+                                            <th className="px-6 py-4 text-right">Item Count</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody className="divide-y divide-zinc-800">
                                         {stats.map((item: any) => (
-                                            <tr key={item._id} className="border-b bg-white hover:bg-slate-50">
-                                                <td className="px-6 py-4 font-medium text-slate-900">{item.categoryName}</td>
-                                                <td className="px-6 py-4 text-right font-semibold text-slate-900">{item.totalAmount.toLocaleString()}</td>
-                                                <td className="px-6 py-4 text-right">{item.count}</td>
+                                            <tr key={item._id} className="group transition-colors hover:bg-zinc-800/30">
+                                                <td className="px-6 py-5 font-bold text-zinc-100">{item.categoryName}</td>
+                                                <td className="px-6 py-5 text-right font-mono font-bold text-emerald-500 text-lg">
+                                                    {item.totalAmount.toLocaleString()}
+                                                </td>
+                                                <td className="px-6 py-5 text-right font-medium text-zinc-500 uppercase text-[10px] tracking-tighter">
+                                                    {item.count} Transactions
+                                                </td>
                                             </tr>
                                         ))}
                                     </tbody>

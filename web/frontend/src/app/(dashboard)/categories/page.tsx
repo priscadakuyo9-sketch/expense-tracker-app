@@ -43,55 +43,68 @@ export default function CategoriesPage() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 p-4 md:p-8">
+        <div className="p-4 md:p-8 selection:bg-emerald-500/30">
             <div className="mx-auto max-w-2xl">
-                <Button variant="ghost" className="mb-6" onClick={() => router.back()}>
+                <Button variant="ghost" className="mb-6 text-zinc-400 hover:text-white" onClick={() => router.back()}>
                     <ArrowLeft className="mr-2 h-5 w-5" />
-                    Back
+                    Back to Dashboard
                 </Button>
 
-                <h1 className="mb-8 text-3xl font-bold text-slate-900">Manage Categories</h1>
+                <div className="mb-10">
+                    <h1 className="text-4xl font-extrabold tracking-tight text-white mb-2">Manage Categories</h1>
+                    <p className="text-zinc-400 text-sm">Organize your expenses with custom labels and icons.</p>
+                </div>
 
-                <Card className="mb-8">
+                <Card className="mb-8 border-zinc-800 bg-zinc-900/50 backdrop-blur-sm">
                     <CardHeader>
-                        <CardTitle>Add New Category</CardTitle>
+                        <CardTitle className="text-lg font-bold text-white">Add New Category</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <form onSubmit={handleAddCategory} className="flex gap-4">
+                        <form onSubmit={handleAddCategory} className="flex flex-col sm:flex-row gap-4">
                             <Input
                                 placeholder="Category Name (e.g. Health, Gift)"
                                 value={newName}
                                 onChange={(e) => setNewName(e.target.value)}
+                                className="bg-zinc-950 border-zinc-800 text-white placeholder-zinc-600 focus:border-emerald-500/50"
                                 required
                             />
-                            <Button type="submit" disabled={loading}>
-                                <Plus className="mr-2 h-5 w-5" />
-                                Add
+                            <Button type="submit" disabled={loading} className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8">
+                                {loading ? (
+                                    <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                                ) : (
+                                    <>
+                                        <Plus className="mr-2 h-5 w-5" />
+                                        Add
+                                    </>
+                                )}
                             </Button>
                         </form>
                     </CardContent>
                 </Card>
 
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Your Categories</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                            {categories.map((cat: any) => (
-                                <div
-                                    key={cat._id}
-                                    className="flex items-center space-x-3 rounded-lg border p-4 bg-white"
-                                >
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
-                                        <Tag className="h-5 w-5" />
-                                    </div>
-                                    <span className="font-medium text-slate-900">{cat.name}</span>
+                <div className="space-y-4">
+                    <h2 className="text-xl font-bold text-white mb-4 flex items-center">
+                        <Tag className="mr-2 h-5 w-5 text-emerald-500" />
+                        Existing Categories
+                    </h2>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        {categories.map((cat: any) => (
+                            <div
+                                key={cat._id}
+                                className="group flex items-center space-x-4 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5 transition-all hover:bg-zinc-800/60 hover:border-zinc-700"
+                            >
+                                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-zinc-800 text-emerald-500 transition-colors group-hover:bg-emerald-500/20 shadow-lg">
+                                    {cat.icon && cat.icon !== 'Tag' ? (
+                                        <span className="text-xl">{cat.icon}</span>
+                                    ) : (
+                                        <Tag className="h-6 w-6" />
+                                    )}
                                 </div>
-                            ))}
-                        </div>
-                    </CardContent>
-                </Card>
+                                <span className="text-lg font-bold text-zinc-100">{cat.name}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     );
