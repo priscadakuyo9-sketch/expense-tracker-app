@@ -23,4 +23,9 @@ export class CreateBudgetDto {
     @IsString()
     @IsOptional()
     categoryId?: string;
+
+    @ApiProperty({ example: 50000, description: 'Optional alias for amount', required: false })
+    @IsNumber()
+    @IsOptional()
+    limitAmount?: number;
 }

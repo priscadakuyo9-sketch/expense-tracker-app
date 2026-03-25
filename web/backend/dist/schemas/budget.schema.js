@@ -16,6 +16,7 @@ let Budget = class Budget extends mongoose_2.Document {
     limitAmount;
     period;
     alertThreshold;
+    amount;
     userId;
 };
 exports.Budget = Budget;
@@ -31,6 +32,10 @@ __decorate([
     (0, mongoose_1.Prop)({ default: 80 }),
     __metadata("design:type", Number)
 ], Budget.prototype, "alertThreshold", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: false }),
+    __metadata("design:type", Number)
+], Budget.prototype, "amount", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)

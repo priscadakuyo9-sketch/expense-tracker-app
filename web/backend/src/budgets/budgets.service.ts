@@ -25,15 +25,20 @@ export class BudgetsService {
       query.categoryId = new Types.ObjectId(createBudgetDto.categoryId);
     }
 
-    const updateData = {
+    const updateData: any = {
       ...createBudgetDto,
       userId: new Types.ObjectId(userId),
     };
 
+    // Synchronize amount and limitAmount to satisfy all clients
+    const value = createBudgetDto.limitAmount || createBudgetDto.amount || 0;
+    updateData.amount = value;
+    updateData.limitAmount = value;
+
     if (createBudgetDto.categoryId) {
       updateData.categoryId = new Types.ObjectId(
         createBudgetDto.categoryId,
-      ) as any;
+      );
     }
 
     const budget = await this.budgetModel

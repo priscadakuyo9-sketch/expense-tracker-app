@@ -37,6 +37,9 @@ let BudgetsService = class BudgetsService {
             ...createBudgetDto,
             userId: new mongoose_2.Types.ObjectId(userId),
         };
+        const value = createBudgetDto.limitAmount || createBudgetDto.amount || 0;
+        updateData.amount = value;
+        updateData.limitAmount = value;
         if (createBudgetDto.categoryId) {
             updateData.categoryId = new mongoose_2.Types.ObjectId(createBudgetDto.categoryId);
         }

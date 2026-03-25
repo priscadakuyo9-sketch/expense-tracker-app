@@ -12,6 +12,9 @@ export class Budget extends Document {
   @Prop({ default: 80 })
   alertThreshold: number;
 
+  @Prop({ required: false })
+  amount: number;
+
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
   userId: Types.ObjectId;
 }

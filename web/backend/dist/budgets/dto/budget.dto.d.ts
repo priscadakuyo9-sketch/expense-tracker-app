@@ -3,4 +3,5 @@ export declare class CreateBudgetDto {
     period: string;
     alertThreshold?: number;
     categoryId?: string;
+    limitAmount?: number;
 }

@@ -17,6 +17,7 @@ class CreateBudgetDto {
     period;
     alertThreshold;
     categoryId;
+    limitAmount;
 }
 exports.CreateBudgetDto = CreateBudgetDto;
 __decorate([
@@ -45,4 +46,10 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", String)
 ], CreateBudgetDto.prototype, "categoryId", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 50000, description: 'Optional alias for amount', required: false }),
+    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Number)
+], CreateBudgetDto.prototype, "limitAmount", void 0);
 //# sourceMappingURL=budget.dto.js.map

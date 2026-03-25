@@ -154,11 +154,11 @@ export default function DashboardPage() {
                             <div className="flex justify-between items-end">
                                 <div>
                                     <p className="text-xs text-zinc-500 mb-1">Total Spent</p>
-                                    <p className="text-xl font-bold text-white">{user?.currency} {budgetStatus.totalSpent?.toLocaleString()}</p>
+                                    <p className="text-xl font-bold text-white">{user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()}</p>
                                 </div>
                                 <div className="text-right">
                                     <p className="text-xs text-zinc-500 mb-1">Budget Limit</p>
-                                    <p className="text-xl font-bold text-zinc-300">{user?.currency} {budgetStatus.limitAmount?.toLocaleString()}</p>
+                                    <p className="text-xl font-bold text-zinc-300">{user?.currency || 'CFA'} {budgetStatus.limitAmount?.toLocaleString()}</p>
                                 </div>
                             </div>
                         </CardContent>
@@ -174,7 +174,7 @@ export default function DashboardPage() {
                         </CardHeader>
                         <CardContent>
                             <div className="text-3xl font-bold text-white mb-2">
-                                {user?.currency} {totalSpent.toLocaleString()}
+                                {user?.currency || 'CFA'} {totalSpent.toLocaleString()}
                             </div>
                             <div className="flex items-center text-xs text-emerald-500 bg-emerald-500/10 w-fit px-2 py-1 rounded-full">
                                 <ArrowUpRight className="mr-1 h-3 w-3" />
@@ -350,7 +350,7 @@ export default function DashboardPage() {
                                         </div>
                                         <div className="text-right">
                                             <p className="font-bold text-white">
-                                                -{user?.currency} {expense.amount.toLocaleString()}
+                                                -{user?.currency || 'CFA'} {expense.amount.toLocaleString()}
                                             </p>
                                             <p className="text-[10px] text-emerald-500 font-semibold uppercase tracking-widest">Recorded</p>
                                         </div>
