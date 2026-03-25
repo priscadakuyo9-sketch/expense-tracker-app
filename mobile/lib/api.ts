@@ -1,8 +1,8 @@
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-const API_URL = 'http://192.168.11.101:4000'; // Votre adresse IP locale correcte
-
+// URL de l'API en production sur Render
+const API_URL = 'https://expense-tracker-app-biq1.onrender.com';
 const api = axios.create({
     baseURL: API_URL,
 });

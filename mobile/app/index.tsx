@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, RefreshControl } from 'react-native';
-import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, AlertTriangle } from 'lucide-react-native';
+import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, AlertTriangle, Settings } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import api from '../lib/api';
@@ -122,17 +122,28 @@ export default function Dashboard() {
                         </Text>
                         <Text className="text-zinc-400">Total spending this month</Text>
                     </View>
-                    <TouchableOpacity
-                        onPress={handleLogout}
-                        className="h-12 w-12 items-center justify-center rounded-full bg-zinc-800"
-                    >
-                        <LogOut size={20} color="#a1a1aa" />
-                    </TouchableOpacity>
+                    <View className="flex-row items-center gap-3">
+                        <TouchableOpacity
+                            onPress={() => router.push('/budget')}
+                            className="h-12 w-12 items-center justify-center rounded-full bg-zinc-800"
+                        >
+                            <Settings size={20} color="#a1a1aa" />
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={handleLogout}
+                            className="h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10"
+                        >
+                            <LogOut size={20} color="#10b981" />
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
                 {/* Budget Alert Banner */}
                 {budgetStatus.hasBudget && budgetStatus.alertTriggered && (
-                    <View className="mb-6 rounded-2xl bg-red-500/10 border border-red-500/40 p-4 flex-row items-center">
+                    <TouchableOpacity 
+                        onPress={() => router.push('/budget')}
+                        className="mb-6 rounded-2xl bg-red-500/10 border border-red-500/40 p-4 flex-row items-center"
+                    >
                         <AlertTriangle size={22} color="#ef4444" />
                         <View className="ml-3 flex-1">
                             <Text className="font-bold text-red-400">Budget Alert ⚠️</Text>
@@ -141,12 +152,15 @@ export default function Dashboard() {
                                 ({user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()} / {budgetStatus.limitAmount?.toLocaleString()}).
                             </Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 )}
 
                 {/* Budget Progress Bar (when budget is set but not yet triggered) */}
                 {budgetStatus.hasBudget && !budgetStatus.alertTriggered && (
-                    <View className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4">
+                    <TouchableOpacity 
+                        onPress={() => router.push('/budget')}
+                        className="mb-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 p-4"
+                    >
                         <View className="flex-row justify-between mb-2">
                             <Text className="text-sm font-medium text-zinc-400">Monthly Budget</Text>
                             <Text className="text-sm font-bold text-emerald-400">{budgetStatus.percentage}%</Text>
@@ -160,7 +174,16 @@ export default function Dashboard() {
                         <Text className="text-xs text-zinc-500 mt-2">
                             {user?.currency || 'CFA'} {budgetStatus.totalSpent?.toLocaleString()} / {budgetStatus.limitAmount?.toLocaleString()} spent
                         </Text>
-                    </View>
+                    </TouchableOpacity>
+                )}
+
+                {!budgetStatus.hasBudget && (
+                    <TouchableOpacity 
+                        onPress={() => router.push('/budget')}
+                        className="mb-6 rounded-2xl border border-dashed border-zinc-800 bg-zinc-900/20 p-4 items-center"
+                    >
+                        <Text className="text-zinc-500 text-sm font-medium">+ Set monthly budget limit</Text>
+                    </TouchableOpacity>
                 )}
 
                 {/* Big Wallet Card */}

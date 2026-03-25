@@ -1,4 +1,4 @@
-import { IsNumber, IsString, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsNumber, IsString, IsNotEmpty, IsOptional, Min, Max } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateBudgetDto {
@@ -11,6 +11,13 @@ export class CreateBudgetDto {
     @IsString()
     @IsNotEmpty()
     period: string;
+
+    @ApiProperty({ example: 80, description: 'Alert threshold percentage', required: false })
+    @IsNumber()
+    @IsOptional()
+    @Min(1)
+    @Max(100)
+    alertThreshold?: number;
 
     @ApiProperty({ required: false, example: '65f1a2b3c4d5e6f7a8b9c0d1' })
     @IsString()

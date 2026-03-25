@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, Activity mountain } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, SafeAreaView, KeyboardAvoidingView, Platform, ActivityIndicator } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import { Wallet, Mail, Lock, ArrowRight, Loader2 } from 'lucide-react-native';
 import * as SecureStore from 'expo-secure-store';
@@ -35,7 +35,10 @@ export default function LoginScreen() {
     };
 
     return (
-        <SafeAreaView className="flex-1 bg-[#09090b]">
+        <SafeAreaView 
+            className="flex-1 bg-white"
+            style={{ flex: 1, backgroundColor: '#ffffff' }}
+        >
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 className="flex-1 px-6 justify-center"
@@ -93,7 +96,7 @@ export default function LoginScreen() {
                     className="mt-10 flex-row items-center justify-center rounded-2xl bg-emerald-600 py-4 shadow-xl shadow-emerald-600/20"
                 >
                     {loading ? (
-                        <Text className="text-lg font-bold text-white">Authenticating...</Text>
+                        <ActivityIndicator color="white" />
                     ) : (
                         <>
                             <Text className="text-lg font-bold text-white mr-2">Sign In</Text>
