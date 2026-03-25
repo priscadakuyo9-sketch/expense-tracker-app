@@ -74,17 +74,18 @@ export default function NewExpense() {
 
             <ScrollView className="flex-1 px-6 pt-4">
                 {/* Amount Input */}
-                <View className="mb-8 items-center">
-                    <Text className="mb-2 text-zinc-400">Amount Spent</Text>
-                    <View className="flex-row items-baseline">
-                        <Text className="text-2xl font-bold text-emerald-500 mr-2">CFA</Text>
+                <View className="mb-10 items-center justify-center py-6 bg-zinc-900/40 rounded-[40px] border border-zinc-800/50 shadow-sm">
+                    <Text className="mb-3 text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em]">Amount Spent</Text>
+                    <View className="flex-row items-center justify-center">
+                        <Text className="text-3xl font-black text-emerald-500 mr-3">CFA</Text>
                         <TextInput
-                            className="text-5xl font-bold text-white min-w-[100px] text-center"
+                            className="text-6xl font-black text-white min-w-[120px] text-center tracking-tighter"
                             placeholder="0"
-                            placeholderTextColor="#27272a"
+                            placeholderTextColor="#18181b"
                             keyboardType="numeric"
                             value={formData.amount}
                             onChangeText={(val) => setFormData(prev => ({ ...prev, amount: val }))}
+                            autoFocus
                         />
                     </View>
                 </View>
@@ -139,15 +140,15 @@ export default function NewExpense() {
                 <TouchableOpacity
                     onPress={handleSave}
                     disabled={loading}
-                    className="mt-6 h-16 flex-row items-center justify-center rounded-3xl bg-emerald-500 shadow-xl shadow-emerald-500/20"
+                    className="mt-8 h-20 flex-row items-center justify-center rounded-[30px] bg-emerald-600 shadow-2xl shadow-emerald-500/40 active:scale-[0.98] transition-all"
                 >
                     {loading ? (
                         <ActivityIndicator color="white" />
                     ) : (
-                        <>
-                            <Save size={20} color="white" className="mr-2" />
-                            <Text className="text-lg font-bold text-white">Save Expense</Text>
-                        </>
+                        <View className="flex-row items-center">
+                            <Save size={24} color="white" className="mr-3" />
+                            <Text className="text-xl font-black text-white tracking-tight">Confirm Expense</Text>
+                        </View>
                     )}
                 </TouchableOpacity>
 

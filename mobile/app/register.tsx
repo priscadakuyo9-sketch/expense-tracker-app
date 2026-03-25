@@ -41,37 +41,37 @@ export default function RegisterScreen() {
                 className="flex-1"
             >
                 <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', paddingHorizontal: 24, paddingVertical: 40 }}>
-                    <View className="mb-10 items-center">
-                        <View className="h-20 w-20 items-center justify-center rounded-3xl bg-emerald-500 shadow-2xl shadow-emerald-500/40">
-                            <Wallet size={40} color="white" />
+                    <View className="mb-12 items-center">
+                        <View className="h-24 w-24 items-center justify-center rounded-[32px] bg-emerald-500 shadow-2xl shadow-emerald-500/40">
+                            <Wallet size={48} color="white" />
                         </View>
-                        <Text className="mt-6 text-4xl font-bold text-white tracking-tight text-center">Create Account</Text>
-                        <Text className="mt-2 text-zinc-400 text-center">Join us to master your finances</Text>
+                        <Text className="mt-8 text-5xl font-black text-white tracking-tighter text-center">Join Us</Text>
+                        <Text className="mt-2 text-zinc-500 font-medium uppercase tracking-widest text-xs text-center font-bold">Launch your financial journey</Text>
                     </View>
 
-                    <View className="space-y-4">
+                    <View className="space-y-6">
                         <View>
-                            <Text className="mb-2 text-sm font-medium text-zinc-400">Full Name</Text>
-                            <View className="flex-row items-center rounded-2xl border border-zinc-800 bg-zinc-900/50 px-4 py-4">
-                                <User size={20} color="#71717a" />
+                            <Text className="mb-3 text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Full Name</Text>
+                            <View className="flex-row items-center rounded-3xl border border-zinc-800 bg-zinc-900/50 px-5 py-5">
+                                <User size={20} color="#059669" />
                                 <TextInput
-                                    className="ml-3 flex-1 text-white"
+                                    className="ml-3 flex-1 text-white text-lg font-medium"
                                     placeholder="John Doe"
-                                    placeholderTextColor="#3f3f46"
+                                    placeholderTextColor="#27272a"
                                     value={formData.name}
                                     onChangeText={(text) => setFormData({ ...formData, name: text })}
                                 />
                             </View>
                         </View>
 
-                        <View className="mt-4">
-                            <Text className="mb-2 text-sm font-medium text-zinc-400">Email Address</Text>
-                            <View className="flex-row items-center rounded-2xl border border-zinc-800 bg-zinc-900/50 px-4 py-4">
-                                <Mail size={20} color="#71717a" />
+                        <View className="mt-2">
+                            <Text className="mb-3 text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Email Address</Text>
+                            <View className="flex-row items-center rounded-3xl border border-zinc-800 bg-zinc-900/50 px-5 py-5">
+                                <Mail size={20} color="#059669" />
                                 <TextInput
-                                    className="ml-3 flex-1 text-white"
+                                    className="ml-3 flex-1 text-white text-lg font-medium"
                                     placeholder="name@example.com"
-                                    placeholderTextColor="#3f3f46"
+                                    placeholderTextColor="#27272a"
                                     value={formData.email}
                                     onChangeText={(text) => setFormData({ ...formData, email: text })}
                                     autoCapitalize="none"
@@ -80,14 +80,14 @@ export default function RegisterScreen() {
                             </View>
                         </View>
 
-                        <View className="mt-4">
-                            <Text className="mb-2 text-sm font-medium text-zinc-400">Password</Text>
-                            <View className="flex-row items-center rounded-2xl border border-zinc-800 bg-zinc-900/50 px-4 py-4">
-                                <Lock size={20} color="#71717a" />
+                        <View className="mt-2">
+                            <Text className="mb-3 text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Password</Text>
+                            <View className="flex-row items-center rounded-3xl border border-zinc-800 bg-zinc-900/50 px-5 py-5">
+                                <Lock size={20} color="#059669" />
                                 <TextInput
-                                    className="ml-3 flex-1 text-white"
+                                    className="ml-3 flex-1 text-white text-lg font-medium"
                                     placeholder="••••••••"
-                                    placeholderTextColor="#3f3f46"
+                                    placeholderTextColor="#18181b"
                                     value={formData.password}
                                     onChangeText={(text) => setFormData({ ...formData, password: text })}
                                     secureTextEntry
@@ -105,14 +105,14 @@ export default function RegisterScreen() {
                     <TouchableOpacity
                         onPress={handleRegister}
                         disabled={loading}
-                        className="mt-10 flex-row items-center justify-center rounded-2xl bg-emerald-600 py-4 shadow-xl shadow-emerald-600/20"
+                        className="mt-12 h-20 flex-row items-center justify-center rounded-[30px] bg-emerald-600 shadow-2xl shadow-emerald-500/40 active:scale-[0.98] transition-all"
                     >
                         {loading ? (
-                            <Text className="text-lg font-bold text-white">Creating account...</Text>
+                            <ActivityIndicator color="white" />
                         ) : (
                             <>
-                                <Text className="text-lg font-bold text-white mr-2">Register</Text>
-                                <ArrowRight size={20} color="white" />
+                                <Text className="text-xl font-black text-white mr-3 tracking-tight">Create Portfolio</Text>
+                                <ArrowRight size={24} color="white" />
                             </>
                         )}
                     </TouchableOpacity>

@@ -36,8 +36,7 @@ export default function LoginScreen() {
 
     return (
         <SafeAreaView 
-            className="flex-1 bg-white"
-            style={{ flex: 1, backgroundColor: '#ffffff' }}
+            className="flex-1 bg-[#09090b]"
         >
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -47,23 +46,23 @@ export default function LoginScreen() {
                     contentContainerStyle={{ flexGrow: 1, justifyContent: 'center', paddingHorizontal: 24, paddingVertical: 40 }}
                     showsVerticalScrollIndicator={false}
                 >
-                    <View className="mb-10 items-center">
-                        <View className="h-20 w-20 items-center justify-center rounded-3xl bg-emerald-500 shadow-2xl shadow-emerald-500/40">
-                            <Wallet size={40} color="white" />
+                    <View className="mb-12 items-center">
+                        <View className="h-24 w-24 items-center justify-center rounded-[32px] bg-emerald-500 shadow-2xl shadow-emerald-500/40">
+                            <Wallet size={48} color="white" />
                         </View>
-                        <Text className="mt-6 text-4xl font-bold text-black tracking-tight">Welcome Back</Text>
-                        <Text className="mt-2 text-zinc-500">Sign in to track your expenses</Text>
+                        <Text className="mt-8 text-5xl font-black text-white tracking-tighter">Welcome Back</Text>
+                        <Text className="mt-2 text-zinc-500 font-medium uppercase tracking-widest text-xs">Sign in to your portfolio</Text>
                     </View>
 
-                    <View className="space-y-4">
+                    <View className="space-y-6">
                         <View>
-                            <Text className="mb-2 text-sm font-medium text-zinc-500">Email Address</Text>
-                            <View className="flex-row items-center rounded-2xl border border-zinc-800 bg-zinc-900/50 px-4 py-4">
-                                <Mail size={20} color="#71717a" />
+                            <Text className="mb-3 text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Email Address</Text>
+                            <View className="flex-row items-center rounded-3xl border border-zinc-800 bg-zinc-900/50 px-5 py-5">
+                                <Mail size={20} color="#059669" />
                                 <TextInput
-                                    className="ml-3 flex-1 text-black"
+                                    className="ml-3 flex-1 text-white text-lg font-medium"
                                     placeholder="name@example.com"
-                                    placeholderTextColor="#a1a1aa"
+                                    placeholderTextColor="#27272a"
                                     value={formData.email}
                                     onChangeText={(text) => setFormData({ ...formData, email: text })}
                                     autoCapitalize="none"
@@ -71,15 +70,15 @@ export default function LoginScreen() {
                                 />
                             </View>
                         </View>
-
-                        <View className="mt-4">
-                            <Text className="mb-2 text-sm font-medium text-zinc-500">Password</Text>
-                            <View className="flex-row items-center rounded-2xl border border-zinc-800 bg-zinc-900/50 px-4 py-4">
-                                <Lock size={20} color="#71717a" />
+                        
+                        <View className="mt-2">
+                            <Text className="mb-3 text-[10px] font-bold text-zinc-500 uppercase tracking-widest ml-1">Password</Text>
+                            <View className="flex-row items-center rounded-3xl border border-zinc-800 bg-zinc-900/50 px-5 py-5">
+                                <Lock size={20} color="#059669" />
                                 <TextInput
-                                    className="ml-3 flex-1 text-black"
+                                    className="ml-3 flex-1 text-white text-lg font-medium"
                                     placeholder="••••••••"
-                                    placeholderTextColor="#a1a1aa"
+                                    placeholderTextColor="#18181b"
                                     value={formData.password}
                                     onChangeText={(text) => setFormData({ ...formData, password: text })}
                                     secureTextEntry
@@ -97,14 +96,14 @@ export default function LoginScreen() {
                     <TouchableOpacity
                         onPress={handleLogin}
                         disabled={loading}
-                        className="mt-10 flex-row items-center justify-center rounded-2xl bg-emerald-600 py-4 shadow-xl shadow-emerald-600/20"
+                        className="mt-12 h-20 flex-row items-center justify-center rounded-[30px] bg-emerald-600 shadow-2xl shadow-emerald-500/40 active:scale-[0.98] transition-all"
                     >
                         {loading ? (
                             <ActivityIndicator color="white" />
                         ) : (
                             <>
-                                <Text className="text-lg font-bold text-white mr-2">Sign In</Text>
-                                <ArrowRight size={20} color="white" />
+                                <Text className="text-xl font-black text-white mr-3 tracking-tight">Access Dashboard</Text>
+                                <ArrowRight size={24} color="white" />
                             </>
                         )}
                     </TouchableOpacity>
