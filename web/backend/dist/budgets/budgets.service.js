@@ -65,21 +65,11 @@ let BudgetsService = class BudgetsService {
         }
         const startDate = new Date(Date.UTC(now.getFullYear(), now.getMonth(), 1, 0, 0, 0));
         const endDate = new Date(Date.UTC(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999));
-        const result = await this.expenseModel.aggregate([
-            {
-                $match: {
-                    userId: new mongoose_2.Types.ObjectId(userId),
-                    date: { $gte: startDate, $lte: endDate },
-                },
-            },
-            {
-                $group: {
-                    _id: null,
-                    totalSpent: { $sum: '$amount' },
-                },
-            },
-        ]);
-        const totalSpent = result.length > 0 ? result[0].totalSpent : 0;
+        const expenses = await this.expenseModel.find({
+            userId: new mongoose_2.Types.ObjectId(userId),
+            date: { $gte: startDate, $lte: endDate },
+        }).exec();
+        const totalSpent = expenses.reduce((acc, exp) => acc + (exp.amount || 0), 0);
         const limitAmount = budget.limitAmount ?? budget.amount ?? 0;
         const alertThreshold = budget.alertThreshold ?? 80;
         const percentage = limitAmount > 0 ? Math.round((totalSpent / limitAmount) * 100) : 0;

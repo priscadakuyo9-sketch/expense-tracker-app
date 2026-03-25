@@ -70,22 +70,14 @@ export class BudgetsService {
     const startDate = new Date(Date.UTC(now.getFullYear(), now.getMonth(), 1, 0, 0, 0));
     const endDate = new Date(Date.UTC(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999));
 
-    const result = await this.expenseModel.aggregate([
-      {
-        $match: {
-          userId: new Types.ObjectId(userId),
-          date: { $gte: startDate, $lte: endDate },
-        },
-      },
-      {
-        $group: {
-          _id: null,
-          totalSpent: { $sum: '$amount' },
-        },
-      },
-    ]);
+    // Match expenses using standard find for better reliability across environments
+    const expenses = await this.expenseModel.find({
+      userId: new Types.ObjectId(userId),
+      date: { $gte: startDate, $lte: endDate },
+    }).exec();
 
-    const totalSpent = result.length > 0 ? result[0].totalSpent : 0;
+    const totalSpent = expenses.reduce((acc, exp) => acc + (exp.amount || 0), 0);
+
     // Support both `limitAmount` (schema field) and `amount` (DTO field saved by legacy code)
     const limitAmount = (budget as any).limitAmount ?? (budget as any).amount ?? 0;
     const alertThreshold = (budget as any).alertThreshold ?? 80;
