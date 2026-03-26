@@ -17,6 +17,9 @@ export class Budget extends Document {
 
   @Prop({ type: Types.ObjectId, ref: 'User', required: true })
   userId: Types.ObjectId;
+
+  @Prop({ type: Types.ObjectId, ref: 'Category', required: false })
+  categoryId: Types.ObjectId;
 }
 
 export const BudgetSchema = SchemaFactory.createForClass(Budget);

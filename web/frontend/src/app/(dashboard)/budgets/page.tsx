@@ -27,7 +27,7 @@ export default function BudgetsPage() {
     const fetchCurrentBudget = async () => {
         try {
             const now = new Date();
-            const period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+            const period = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}`;
             const response = await api.get(`/budgets?period=${period}`);
             
             if (response.data) {
@@ -52,7 +52,7 @@ export default function BudgetsPage() {
         setSaving(true);
         try {
             const now = new Date();
-            const period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+            const period = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}`;
             
             await api.post('/budgets', {
                 amount: Number(amount),

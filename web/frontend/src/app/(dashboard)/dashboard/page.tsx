@@ -46,8 +46,8 @@ export default function DashboardPage() {
     const fetchData = async () => {
         try {
             const now = new Date();
-            const year = now.getFullYear();
-            const month = now.getMonth() + 1;
+            const year = now.getUTCFullYear();
+            const month = now.getUTCMonth() + 1; // 1-indexed for the API
 
             const [statsRes, expensesRes, trendRes, budgetRes] = await Promise.all([
                 api.get(`/stats/monthly?year=${year}&month=${month}`),

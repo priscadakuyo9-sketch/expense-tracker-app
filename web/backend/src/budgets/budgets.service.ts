@@ -19,26 +19,22 @@ export class BudgetsService {
     const query: any = {
       userId: new Types.ObjectId(userId),
       period: createBudgetDto.period,
+      categoryId: createBudgetDto.categoryId ? new Types.ObjectId(createBudgetDto.categoryId) : null,
     };
 
-    if (createBudgetDto.categoryId) {
-      query.categoryId = new Types.ObjectId(createBudgetDto.categoryId);
-    }
-
+    const value = Number(createBudgetDto.limitAmount) || Number(createBudgetDto.amount) || 0;
     const updateData: any = {
       ...createBudgetDto,
       userId: new Types.ObjectId(userId),
+      amount: value,
+      limitAmount: value,
+      alertThreshold: Number(createBudgetDto.alertThreshold) || 80,
     };
 
-    // Synchronize amount and limitAmount to satisfy all clients
-    const value = createBudgetDto.limitAmount || createBudgetDto.amount || 0;
-    updateData.amount = value;
-    updateData.limitAmount = value;
-
     if (createBudgetDto.categoryId) {
-      updateData.categoryId = new Types.ObjectId(
-        createBudgetDto.categoryId,
-      );
+      updateData.categoryId = new Types.ObjectId(createBudgetDto.categoryId);
+    } else {
+      updateData.categoryId = null; // Ensure it's explicitly null for global budgets
     }
 
     const budget = await this.budgetModel
@@ -50,14 +46,14 @@ export class BudgetsService {
 
   async findCurrent(userId: string): Promise<Budget | null> {
     return this.budgetModel
-      .findOne({ userId: new Types.ObjectId(userId) })
+      .findOne({ userId: new Types.ObjectId(userId), categoryId: null })
       .sort({ createdAt: -1 })
       .exec();
   }
 
   async findByPeriod(userId: string, period: string): Promise<Budget | null> {
     return this.budgetModel
-      .findOne({ userId: new Types.ObjectId(userId), period })
+      .findOne({ userId: new Types.ObjectId(userId), period, categoryId: null })
       .exec();
   }
 
