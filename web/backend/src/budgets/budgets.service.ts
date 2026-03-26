@@ -22,8 +22,18 @@ export class BudgetsService {
     const query: any = {
       userId: new Types.ObjectId(userId),
       period: createBudgetDto.period,
-      categoryId: createBudgetDto.categoryId ? new Types.ObjectId(createBudgetDto.categoryId) : null,
     };
+
+    if (createBudgetDto.categoryId) {
+      query.categoryId = new Types.ObjectId(createBudgetDto.categoryId);
+    } else {
+      // For global budgets, find any existing global record (null, empty, or missing category)
+      query.$or = [
+        { categoryId: null },
+        { categoryId: "" },
+        { categoryId: { $exists: false } }
+      ];
+    }
 
     const rawValue = createBudgetDto.limitAmount ?? createBudgetDto.amount ?? 0;
     const cleanValue = String(rawValue).replace(/\s/g, '').replace(/,/g, '.').replace(/[^0-9.]/g, '');
