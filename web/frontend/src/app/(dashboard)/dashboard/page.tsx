@@ -252,7 +252,7 @@ export default function DashboardPage() {
                             </div>
                             <BarChart3 className="h-5 w-5 text-zinc-600" />
                         </CardHeader>
-                        <CardContent className="h-[300px] w-full pt-4">
+                        <CardContent className="h-[300px] min-h-[300px] w-full pt-4 relative">
                             <ResponsiveContainer width="100%" height="100%">
                                 <AreaChart data={trendData}>
                                     <defs>
@@ -299,7 +299,7 @@ export default function DashboardPage() {
                             <CardTitle className="text-xl font-bold text-white">By Category</CardTitle>
                             <p className="text-xs text-zinc-500">Distribution of expenses</p>
                         </CardHeader>
-                        <CardContent className="h-[300px] w-full">
+                        <CardContent className="h-[300px] min-h-[300px] w-full relative">
                             <ResponsiveContainer width="100%" height="100%">
                                 <RechartsPieChart>
                                     <Pie
