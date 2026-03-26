@@ -252,8 +252,8 @@ export default function DashboardPage() {
                             </div>
                             <BarChart3 className="h-5 w-5 text-zinc-600" />
                         </CardHeader>
-                        <CardContent className="h-[300px] min-h-[300px] w-full pt-4 relative">
-                            <ResponsiveContainer width="100%" height="100%">
+                        <CardContent className="h-[300px] min-h-[300px] w-full pt-4 relative" style={{ minHeight: '300px' }}>
+                            <ResponsiveContainer width="100%" height="100%" debounce={100} key={trendData.length > 0 ? 'chart-loaded' : 'chart-loading'}>
                                 <AreaChart data={trendData}>
                                     <defs>
                                         <linearGradient id="colorAmount" x1="0" y1="0" x2="0" y2="1">
@@ -299,8 +299,8 @@ export default function DashboardPage() {
                             <CardTitle className="text-xl font-bold text-white">By Category</CardTitle>
                             <p className="text-xs text-zinc-500">Distribution of expenses</p>
                         </CardHeader>
-                        <CardContent className="h-[300px] min-h-[300px] w-full relative">
-                            <ResponsiveContainer width="100%" height="100%">
+                        <CardContent className="h-[300px] min-h-[300px] w-full relative" style={{ minHeight: '300px' }}>
+                            <ResponsiveContainer width="100%" height="100%" debounce={100} key={stats.length > 0 ? 'pie-loaded' : 'pie-loading'}>
                                 <RechartsPieChart>
                                     <Pie
                                         data={stats}
