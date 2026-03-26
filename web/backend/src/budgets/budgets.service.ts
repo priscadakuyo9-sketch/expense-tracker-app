@@ -16,6 +16,9 @@ export class BudgetsService {
     createBudgetDto: CreateBudgetDto,
     userId: string,
   ): Promise<Budget> {
+    console.log(`[BUDGET] CreateOrUpdate for user ${userId}, period ${createBudgetDto.period}, category ${createBudgetDto.categoryId || 'null'}`);
+    console.log(`[BUDGET] Amount: ${createBudgetDto.amount}, Limit: ${createBudgetDto.limitAmount}`);
+
     const query: any = {
       userId: new Types.ObjectId(userId),
       period: createBudgetDto.period,
@@ -41,19 +44,33 @@ export class BudgetsService {
       .findOneAndUpdate(query, { $set: updateData }, { new: true, upsert: true })
       .exec();
 
+    console.log(`[BUDGET] Saved result:`, {
+      id: budget?._id,
+      amount: (budget as any).amount,
+      limit: (budget as any).limitAmount,
+      period: budget?.period
+    });
+
     return budget as Budget;
   }
 
   async findCurrent(userId: string): Promise<Budget | null> {
     return this.budgetModel
-      .findOne({ userId: new Types.ObjectId(userId), categoryId: null })
+      .findOne({ 
+        userId: new Types.ObjectId(userId), 
+        categoryId: { $in: [null, undefined] } // Match both null and missing field
+      })
       .sort({ createdAt: -1 })
       .exec();
   }
 
   async findByPeriod(userId: string, period: string): Promise<Budget | null> {
     return this.budgetModel
-      .findOne({ userId: new Types.ObjectId(userId), period, categoryId: null })
+      .findOne({ 
+        userId: new Types.ObjectId(userId), 
+        period, 
+        categoryId: { $in: [null, undefined] } // Match both null and missing field
+      })
       .exec();
   }
 
