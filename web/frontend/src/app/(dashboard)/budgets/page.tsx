@@ -62,8 +62,12 @@ export default function BudgetsPage() {
             });
 
             setSaving(false);
-            alert('Your budget has been updated!');
-            router.push('/dashboard');
+            
+            // Use setTimeout to allow UI repaint before blocking alert
+            setTimeout(() => {
+                alert('Your budget has been updated!');
+                router.push('/dashboard');
+            }, 100);
         } catch (error) {
             console.error('Error saving budget:', error);
             alert('Failed to save budget. Please try again.');
