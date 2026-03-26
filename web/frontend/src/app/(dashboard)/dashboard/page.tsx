@@ -56,9 +56,24 @@ export default function DashboardPage() {
                 api.get('/budgets/status'),
             ]);
 
+            const budgetData = budgetRes.data;
+            console.log('[DEBUG-DASHBOARD] Stats:', statsRes.data);
+            console.log('[DEBUG-DASHBOARD] Budget Data:', budgetData);
+
             setStats(statsRes.data);
             setExpenses(expensesRes.data);
-            setBudgetStatus(budgetRes.data);
+
+            const calculatedSpent = statsRes.data.reduce((acc: number, item: any) => acc + (Number(item.totalAmount) || 0), 0);
+            const finalLimit = Number(budgetData.limitAmount) || Number(budgetData.amount) || 0;
+            const finalPercentage = finalLimit > 0 ? Math.round((calculatedSpent / finalLimit) * 100) : 0;
+
+            setBudgetStatus({
+                ...budgetData,
+                totalSpent: calculatedSpent,
+                limitAmount: finalLimit,
+                percentage: finalPercentage,
+                alertTriggered: finalPercentage >= (budgetData.alertThreshold || 80)
+            });
 
             // Format trend data for chart
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
