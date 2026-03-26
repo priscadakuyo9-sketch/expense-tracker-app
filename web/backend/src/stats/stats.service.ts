@@ -10,13 +10,13 @@ export class StatsService {
   ) {}
 
   async getMonthlyStats(userId: string, year: number, month: number) {
-    const startDate = new Date(Date.UTC(year, month - 1, 1, 0, 0, 0));
-    const endDate = new Date(Date.UTC(year, month, 0, 23, 59, 59, 999));
+    const startDate = new Date(Date.UTC(year, month - 1, 1, 0, 0, 0, 0));
+    const endDate = new Date(Date.UTC(year, month, 1, 0, 0, 0, 0)); // exclusive: first day of next month
 
     // Use find for better reliability across environments
     const expenses = await this.expenseModel.find({
       userId: new Types.ObjectId(userId),
-      date: { $gte: startDate, $lte: endDate },
+      date: { $gte: startDate, $lt: endDate },
     }).populate('categoryId').exec();
 
     // Group by category manually for consistency
@@ -33,7 +33,7 @@ export class StatsService {
         });
       }
       const stat = statsMap.get(catId);
-      stat.totalAmount += exp.amount || 0;
+      stat.totalAmount += Number(exp.amount) || 0;
       stat.count += 1;
     });
 
@@ -41,12 +41,12 @@ export class StatsService {
   }
 
   async getYearlyTrend(userId: string, year: number) {
-    const startDate = new Date(Date.UTC(year, 0, 1, 0, 0, 0));
-    const endDate = new Date(Date.UTC(year, 11, 31, 23, 59, 59, 999));
+    const startDate = new Date(Date.UTC(year, 0, 1, 0, 0, 0, 0));
+    const endDate = new Date(Date.UTC(year + 1, 0, 1, 0, 0, 0, 0)); // exclusive: first day of next year
 
     const expenses = await this.expenseModel.find({
       userId: new Types.ObjectId(userId),
-      date: { $gte: startDate, $lte: endDate },
+      date: { $gte: startDate, $lt: endDate },
     }).exec();
 
     const monthlyStats = Array(12).fill(0).map((_, i) => ({
@@ -56,7 +56,7 @@ export class StatsService {
 
     expenses.forEach((exp: any) => {
       const month = exp.date.getUTCMonth();
-      monthlyStats[month].totalAmount += exp.amount || 0;
+      monthlyStats[month].totalAmount += Number(exp.amount) || 0;
     });
 
     return monthlyStats.sort((a, b) => a._id.month - b._id.month);

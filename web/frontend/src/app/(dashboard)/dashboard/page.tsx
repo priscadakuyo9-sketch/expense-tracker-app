@@ -92,7 +92,7 @@ export default function DashboardPage() {
         );
     }
 
-    const totalSpent = stats.reduce((acc: number, item: any) => acc + item.totalAmount, 0);
+    const totalSpent = stats.reduce((acc: number, item: any) => acc + (item.totalAmount || 0), 0);
 
     return (
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
