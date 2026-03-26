@@ -30,7 +30,7 @@ export class BudgetsService {
       // For global budgets, find any existing global record (null, empty, or missing category)
       query.$or = [
         { categoryId: null },
-        { categoryId: "" },
+        { categoryId: "" as any },
         { categoryId: { $exists: false } }
       ];
     }
@@ -59,7 +59,9 @@ export class BudgetsService {
     await this.budgetModel.deleteMany(query).exec();
 
     // CREATE: Save the fresh budget record
-    const budget = await this.budgetModel.create(updateData);
+    // Ensure we don't pass an existing _id to create() to avoid conflicts
+    const { _id, ...cleanUpdateData } = updateData;
+    const budget = await this.budgetModel.create(cleanUpdateData);
     
     console.log(`[BUDGET] Saved new clean record:`, {
       id: budget?._id,
