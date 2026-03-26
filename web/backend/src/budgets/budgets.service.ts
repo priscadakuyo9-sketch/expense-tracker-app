@@ -66,7 +66,12 @@ export class BudgetsService {
     const now = new Date();
     const period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
-    const budget = await this.findByPeriod(userId, period);
+    // Try to find budget by current month period first,
+    // then fall back to any budget (handles old records stored with period='MONTHLY')
+    let budget = await this.findByPeriod(userId, period);
+    if (!budget) {
+      budget = await this.findCurrent(userId);
+    }
     if (!budget) {
       return { hasBudget: false };
     }
@@ -84,14 +89,12 @@ export class BudgetsService {
     const totalSpent = expenses.reduce((acc, exp) => acc + (exp.amount || 0), 0);
 
     // Support both `limitAmount` (schema field) and `amount` (DTO field saved by legacy code)
-    const limitAmount = budget ? ((budget as any).limitAmount ?? (budget as any).amount ?? 0) : 200000;
-    const hasBudget = true; // Temporary for testing
+    const limitAmount = (budget as any).limitAmount ?? (budget as any).amount ?? 0;
     const alertThreshold = (budget as any).alertThreshold ?? 80;
     const percentage = limitAmount > 0 ? Math.round((totalSpent / limitAmount) * 100) : 0;
-    const alertTriggered = percentage >= alertThreshold;
 
     return {
-      hasBudget: !!budget,
+      hasBudget: true,
       period,
       limitAmount,
       totalSpent,
