@@ -55,11 +55,13 @@ export class BudgetsService {
       updateData.categoryId = null; // Ensure it's explicitly null for global budgets
     }
 
-    const budget = await this.budgetModel
-      .findOneAndUpdate(query, { $set: updateData }, { returnDocument: 'after' as any, upsert: true })
-      .exec();
+    // CLEANUP: Delete any existing budget that matches this user/period/category to avoid duplicates
+    await this.budgetModel.deleteMany(query).exec();
 
-    console.log(`[BUDGET] Saved result:`, {
+    // CREATE: Save the fresh budget record
+    const budget = await this.budgetModel.create(updateData);
+    
+    console.log(`[BUDGET] Saved new clean record:`, {
       id: budget?._id,
       amount: (budget as any).amount,
       limit: (budget as any).limitAmount,
