@@ -49,7 +49,7 @@ export class CategoriesService {
       .findOneAndUpdate(
         { _id: new Types.ObjectId(id), userId: new Types.ObjectId(userId) },
         { $set: updateCategoryDto },
-        { new: true },
+        { returnDocument: 'after' as any },
       )
       .exec();
     if (!existingCategory) {

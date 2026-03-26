@@ -76,7 +76,7 @@ export class ExpensesService {
       .findOneAndUpdate(
         { _id: new Types.ObjectId(id), userId: new Types.ObjectId(userId) },
         { $set: updateData },
-        { new: true },
+        { returnDocument: 'after' as any },
       )
       .populate('categoryId')
       .exec();
