@@ -41,7 +41,7 @@ export class BudgetsService {
     }
 
     const budget = await this.budgetModel
-      .findOneAndUpdate(query, { $set: updateData }, { new: true, upsert: true })
+      .findOneAndUpdate(query, { $set: updateData }, { returnDocument: 'after' as any, upsert: true })
       .exec();
 
     console.log(`[BUDGET] Saved result:`, {
