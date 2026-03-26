@@ -7,19 +7,21 @@ export declare class BudgetsController {
     findCurrent(req: any): Promise<import("../schemas/budget.schema").Budget | null>;
     getBudgetStatus(req: any): Promise<{
         hasBudget: boolean;
+        totalSpent: number;
+        percentage: number;
         period?: undefined;
         limitAmount?: undefined;
-        totalSpent?: undefined;
-        percentage?: undefined;
+        amount?: undefined;
         alertThreshold?: undefined;
         alertTriggered?: undefined;
     } | {
         hasBudget: boolean;
         period: string;
-        limitAmount: any;
+        limitAmount: number;
+        amount: number;
         totalSpent: number;
         percentage: number;
-        alertThreshold: any;
+        alertThreshold: number;
         alertTriggered: boolean;
     }>;
     findByPeriod(req: any, period: string): Promise<import("../schemas/budget.schema").Budget | null>;

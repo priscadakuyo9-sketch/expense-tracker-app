@@ -60,7 +60,7 @@ export class BudgetsService {
         userId: new Types.ObjectId(userId), 
         $or: [
           { categoryId: null },
-          { categoryId: "" },
+          { categoryId: "" as any },
           { categoryId: { $exists: false } }
         ]
       })
@@ -75,7 +75,7 @@ export class BudgetsService {
         period, 
         $or: [
           { categoryId: null },
-          { categoryId: "" },
+          { categoryId: "" as any },
           { categoryId: { $exists: false } }
         ]
       })

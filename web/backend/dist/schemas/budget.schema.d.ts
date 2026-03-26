@@ -5,6 +5,7 @@ export declare class Budget extends Document {
     alertThreshold: number;
     amount: number;
     userId: Types.ObjectId;
+    categoryId: Types.ObjectId;
 }
 export declare const BudgetSchema: import("mongoose").Schema<Budget, import("mongoose").Model<Budget, any, any, any, (Document<unknown, any, Budget, any, import("mongoose").DefaultSchemaOptions> & Budget & Required<{
     _id: Types.ObjectId;
@@ -44,6 +45,15 @@ export declare const BudgetSchema: import("mongoose").Schema<Budget, import("mon
         id: string;
     }> | undefined;
     amount?: import("mongoose").SchemaDefinitionProperty<number, Budget, Document<unknown, {}, Budget, {
+        id: string;
+    }, import("mongoose").DefaultSchemaOptions> & Omit<Budget & Required<{
+        _id: Types.ObjectId;
+    }> & {
+        __v: number;
+    }, "id"> & {
+        id: string;
+    }> | undefined;
+    categoryId?: import("mongoose").SchemaDefinitionProperty<Types.ObjectId, Budget, Document<unknown, {}, Budget, {
         id: string;
     }, import("mongoose").DefaultSchemaOptions> & Omit<Budget & Required<{
         _id: Types.ObjectId;

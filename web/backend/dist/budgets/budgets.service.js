@@ -26,62 +26,97 @@ let BudgetsService = class BudgetsService {
         this.expenseModel = expenseModel;
     }
     async createOrUpdate(createBudgetDto, userId) {
+        console.log(`[BUDGET] CreateOrUpdate for user ${userId}, period ${createBudgetDto.period}, category ${createBudgetDto.categoryId || 'null'}`);
+        console.log(`[BUDGET] Amount: ${createBudgetDto.amount}, Limit: ${createBudgetDto.limitAmount}`);
         const query = {
             userId: new mongoose_2.Types.ObjectId(userId),
             period: createBudgetDto.period,
+            categoryId: createBudgetDto.categoryId ? new mongoose_2.Types.ObjectId(createBudgetDto.categoryId) : null,
         };
-        if (createBudgetDto.categoryId) {
-            query.categoryId = new mongoose_2.Types.ObjectId(createBudgetDto.categoryId);
-        }
+        const value = Number(createBudgetDto.limitAmount) || Number(createBudgetDto.amount) || 0;
         const updateData = {
             ...createBudgetDto,
             userId: new mongoose_2.Types.ObjectId(userId),
+            amount: value,
+            limitAmount: value,
+            alertThreshold: Number(createBudgetDto.alertThreshold) || 80,
         };
-        const value = createBudgetDto.limitAmount || createBudgetDto.amount || 0;
-        updateData.amount = value;
-        updateData.limitAmount = value;
         if (createBudgetDto.categoryId) {
             updateData.categoryId = new mongoose_2.Types.ObjectId(createBudgetDto.categoryId);
+        }
+        else {
+            updateData.categoryId = null;
         }
         const budget = await this.budgetModel
             .findOneAndUpdate(query, { $set: updateData }, { new: true, upsert: true })
             .exec();
+        console.log(`[BUDGET] Saved result:`, {
+            id: budget?._id,
+            amount: budget.amount,
+            limit: budget.limitAmount,
+            period: budget?.period
+        });
         return budget;
     }
     async findCurrent(userId) {
         return this.budgetModel
-            .findOne({ userId: new mongoose_2.Types.ObjectId(userId) })
+            .findOne({
+            userId: new mongoose_2.Types.ObjectId(userId),
+            $or: [
+                { categoryId: null },
+                { categoryId: "" },
+                { categoryId: { $exists: false } }
+            ]
+        })
             .sort({ createdAt: -1 })
             .exec();
     }
     async findByPeriod(userId, period) {
         return this.budgetModel
-            .findOne({ userId: new mongoose_2.Types.ObjectId(userId), period })
+            .findOne({
+            userId: new mongoose_2.Types.ObjectId(userId),
+            period,
+            $or: [
+                { categoryId: null },
+                { categoryId: "" },
+                { categoryId: { $exists: false } }
+            ]
+        })
             .exec();
     }
     async getBudgetStatus(userId) {
         const now = new Date();
-        const period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-        const budget = await this.findByPeriod(userId, period);
+        const utcYear = now.getUTCFullYear();
+        const utcMonth = now.getUTCMonth();
+        const period = `${utcYear}-${String(utcMonth + 1).padStart(2, '0')}`;
+        let budget = await this.findByPeriod(userId, period);
         if (!budget) {
-            return { hasBudget: false };
+            budget = await this.findByPeriod(userId, 'MONTHLY');
         }
-        const startDate = new Date(Date.UTC(now.getFullYear(), now.getMonth(), 1, 0, 0, 0));
-        const endDate = new Date(Date.UTC(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999));
+        if (!budget) {
+            budget = await this.findCurrent(userId);
+        }
+        if (!budget) {
+            return { hasBudget: false, totalSpent: 0, percentage: 0 };
+        }
+        const startDate = new Date(Date.UTC(utcYear, utcMonth, 1, 0, 0, 0, 0));
+        const endDate = new Date(Date.UTC(utcYear, utcMonth + 1, 1, 0, 0, 0, 0));
         const expenses = await this.expenseModel.find({
             userId: new mongoose_2.Types.ObjectId(userId),
-            date: { $gte: startDate, $lte: endDate },
+            date: { $gte: startDate, $lt: endDate },
         }).exec();
-        const totalSpent = expenses.reduce((acc, exp) => acc + (exp.amount || 0), 0);
-        const limitAmount = budget ? (budget.limitAmount ?? budget.amount ?? 0) : 200000;
-        const hasBudget = true;
-        const alertThreshold = budget.alertThreshold ?? 80;
+        const totalSpent = expenses.reduce((acc, exp) => {
+            const amt = Number(exp.amount) || 0;
+            return acc + amt;
+        }, 0);
+        const limitAmount = Number(budget.limitAmount) || Number(budget.amount) || 0;
+        const alertThreshold = Number(budget.alertThreshold) || 80;
         const percentage = limitAmount > 0 ? Math.round((totalSpent / limitAmount) * 100) : 0;
-        const alertTriggered = percentage >= alertThreshold;
         return {
-            hasBudget: !!budget,
+            hasBudget: true,
             period,
             limitAmount,
+            amount: limitAmount,
             totalSpent,
             percentage,
             alertThreshold,

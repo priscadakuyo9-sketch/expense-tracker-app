@@ -18,6 +18,7 @@ let Budget = class Budget extends mongoose_2.Document {
     alertThreshold;
     amount;
     userId;
+    categoryId;
 };
 exports.Budget = Budget;
 __decorate([
@@ -40,6 +41,10 @@ __decorate([
     (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'User', required: true }),
     __metadata("design:type", mongoose_2.Types.ObjectId)
 ], Budget.prototype, "userId", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: mongoose_2.Types.ObjectId, ref: 'Category', required: false }),
+    __metadata("design:type", mongoose_2.Types.ObjectId)
+], Budget.prototype, "categoryId", void 0);
 exports.Budget = Budget = __decorate([
     (0, mongoose_1.Schema)({ timestamps: true })
 ], Budget);

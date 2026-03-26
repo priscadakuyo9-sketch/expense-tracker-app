@@ -11,19 +11,21 @@ export declare class BudgetsService {
     findByPeriod(userId: string, period: string): Promise<Budget | null>;
     getBudgetStatus(userId: string): Promise<{
         hasBudget: boolean;
+        totalSpent: number;
+        percentage: number;
         period?: undefined;
         limitAmount?: undefined;
-        totalSpent?: undefined;
-        percentage?: undefined;
+        amount?: undefined;
         alertThreshold?: undefined;
         alertTriggered?: undefined;
     } | {
         hasBudget: boolean;
         period: string;
-        limitAmount: any;
+        limitAmount: number;
+        amount: number;
         totalSpent: number;
         percentage: number;
-        alertThreshold: any;
+        alertThreshold: number;
         alertTriggered: boolean;
     }>;
 }
