@@ -55,8 +55,18 @@ export default function BudgetsPage() {
             const now = new Date();
             const period = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}`;
             
+            // SANITIZATION: Remove any spaces, commas, or unexpected characters before parsing
+            const cleanAmount = String(amount).replace(/\s/g, '').replace(/,/g, '.');
+            const numericValue = Number(cleanAmount);
+            
+            if (isNaN(numericValue) || numericValue <= 0) {
+                setSaving(false);
+                alert('Please enter a valid numeric amount without special characters');
+                return;
+            }
+
             await api.post('/budgets', {
-                amount: Number(amount),
+                amount: numericValue,
                 period,
                 alertThreshold: Number(threshold)
             });

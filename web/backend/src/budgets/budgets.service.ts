@@ -25,7 +25,12 @@ export class BudgetsService {
       categoryId: createBudgetDto.categoryId ? new Types.ObjectId(createBudgetDto.categoryId) : null,
     };
 
-    const value = Number(createBudgetDto.limitAmount) || Number(createBudgetDto.amount) || 0;
+    const rawValue = createBudgetDto.limitAmount ?? createBudgetDto.amount ?? 0;
+    const cleanValue = String(rawValue).replace(/\s/g, '').replace(/,/g, '.').replace(/[^0-9.]/g, '');
+    const value = parseFloat(cleanValue) || 0;
+    
+    console.log(`[BUDGET] Raw Value: ${rawValue}, Cleaned: ${cleanValue}, Parsed: ${value}`);
+
     const updateData: any = {
       ...createBudgetDto,
       userId: new Types.ObjectId(userId),
