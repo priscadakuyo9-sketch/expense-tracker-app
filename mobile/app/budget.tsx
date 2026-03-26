@@ -20,13 +20,15 @@ export default function BudgetScreen() {
                 if (userData) setUser(JSON.parse(userData));
 
                 // Fetch current month's budget
+                // Fetch current month's budget using UTC consistently
                 const now = new Date();
-                const period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+                const period = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}`;
                 const response = await api.get(`/budgets?period=${period}`);
                 
                 if (response.data) {
-                    setAmount(String(response.data.limitAmount || response.data.amount || ''));
-                    setThreshold(String(response.data.alertThreshold || '80'));
+                    const budgetVal = response.data.limitAmount ?? response.data.amount;
+                    setAmount(budgetVal !== undefined && budgetVal !== null ? String(budgetVal) : '');
+                    setThreshold(String(response.data.alertThreshold ?? '80'));
                 }
             } catch (error) {
                 console.error('Error loading budget:', error);
@@ -39,8 +41,12 @@ export default function BudgetScreen() {
     }, []);
 
     const handleSave = async () => {
-        if (!amount || isNaN(Number(amount)) || Number(amount) <= 0) {
-            Alert.alert('Error', 'Please enter a valid budget amount');
+        // SANITIZATION: Remove any spaces, commas, or unexpected characters before parsing
+        const cleanAmount = String(amount).replace(/\s/g, '').replace(/,/g, '.');
+        const numericValue = Number(cleanAmount);
+
+        if (isNaN(numericValue) || numericValue <= 0) {
+            Alert.alert('Error', 'Please enter a valid numeric amount without special characters');
             return;
         }
 
@@ -52,14 +58,15 @@ export default function BudgetScreen() {
         setSaving(true);
         try {
             const now = new Date();
-            const period = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+            const period = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}`;
             
             await api.post('/budgets', {
-                amount: Number(amount),
+                amount: numericValue,
                 period,
                 alertThreshold: Number(threshold)
             });
 
+            setSaving(false);
             Alert.alert('Success', 'Your budget has been updated!', [
                 { text: 'OK', onPress: () => router.back() }
             ]);

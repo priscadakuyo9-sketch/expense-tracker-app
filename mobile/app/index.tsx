@@ -57,14 +57,33 @@ export default function Dashboard() {
     const fetchData = async () => {
         try {
             const now = new Date();
+            // Use UTC for consistent monthly statistics across all platforms
+            const year = now.getUTCFullYear();
+            const month = now.getUTCMonth() + 1;
+            
             const [statsRes, expensesRes, budgetRes] = await Promise.all([
-                api.get(`/stats/monthly?year=${now.getFullYear()}&month=${now.getMonth() + 1}`),
+                api.get(`/stats/monthly?year=${year}&month=${month}`),
                 api.get('/expenses'),
                 api.get('/budgets/status'),
             ]);
-            setStats(statsRes.data);
-            setExpenses(expensesRes.data);
-            setBudgetStatus(budgetRes.data);
+            
+            const statsData = statsRes.data || [];
+            setStats(statsData);
+            setExpenses(expensesRes.data || []);
+            
+            // Defensive handling of budget data
+            const bData = budgetRes.data || { hasBudget: false };
+            const calculatedSpent = statsData.reduce((acc: number, item: StatItem) => acc + (Number(item.totalAmount) || 0), 0);
+            const finalLimit = Number(bData.limitAmount) || Number(bData.amount) || 0;
+            const finalPercentage = finalLimit > 0 ? Math.round((calculatedSpent / finalLimit) * 100) : 0;
+
+            setBudgetStatus({
+                ...bData,
+                totalSpent: calculatedSpent,
+                limitAmount: finalLimit,
+                percentage: finalPercentage,
+                alertTriggered: finalPercentage >= (bData.alertThreshold || 80)
+            });
         } catch (err) {
             console.error('Mobile fetch error:', err);
         } finally {
