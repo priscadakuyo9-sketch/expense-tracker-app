@@ -61,6 +61,7 @@ export default function BudgetsPage() {
                 alertThreshold: Number(threshold)
             });
 
+            setSaving(false);
             alert('Your budget has been updated!');
             router.push('/dashboard');
         } catch (error) {
