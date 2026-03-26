@@ -31,8 +31,9 @@ export default function BudgetsPage() {
             const response = await api.get(`/budgets?period=${period}`);
             
             if (response.data) {
-                setAmount(String(response.data.limitAmount || response.data.amount || ''));
-                setThreshold(String(response.data.alertThreshold || '80'));
+                const budgetVal = response.data.limitAmount ?? response.data.amount;
+                setAmount(budgetVal !== undefined && budgetVal !== null ? String(budgetVal) : '');
+                setThreshold(String(response.data.alertThreshold ?? '80'));
             }
         } catch (error) {
             console.error('Error loading budget:', error);

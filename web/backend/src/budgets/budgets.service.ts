@@ -58,7 +58,10 @@ export class BudgetsService {
     return this.budgetModel
       .findOne({ 
         userId: new Types.ObjectId(userId), 
-        categoryId: { $in: [null, undefined] } // Match both null and missing field
+        $or: [
+          { categoryId: null },
+          { categoryId: { $exists: false } }
+        ]
       })
       .sort({ createdAt: -1 })
       .exec();
@@ -69,7 +72,10 @@ export class BudgetsService {
       .findOne({ 
         userId: new Types.ObjectId(userId), 
         period, 
-        categoryId: { $in: [null, undefined] } // Match both null and missing field
+        $or: [
+          { categoryId: null },
+          { categoryId: { $exists: false } }
+        ]
       })
       .exec();
   }
@@ -120,6 +126,7 @@ export class BudgetsService {
       hasBudget: true,
       period,
       limitAmount,
+      amount: limitAmount, // Consistency for all clients
       totalSpent,
       percentage,
       alertThreshold,
