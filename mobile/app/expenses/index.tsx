@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, RefreshControl, ActivityIndicator } from 'react-native';
-import { ArrowLeft, ArrowDownRight, Filter, Calendar } from 'lucide-react-native';
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, RefreshControl, ActivityIndicator, Alert } from 'react-native';
+import { ArrowLeft, ArrowDownRight, Filter, Calendar, Trash2, Edit2 } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import api from '../../lib/api';
@@ -46,6 +46,29 @@ export default function ExpensesList() {
         fetchData();
     }, []);
 
+    const handleDelete = (id: string) => {
+        Alert.alert(
+            "Delete Expense",
+            "Are you sure you want to delete this expense?",
+            [
+                { text: "Cancel", style: "cancel" },
+                { 
+                    text: "Delete", 
+                    style: "destructive",
+                    onPress: async () => {
+                        try {
+                            await api.delete(`/expenses/${id}`);
+                            setExpenses(prev => prev.filter(e => e._id !== id));
+                        } catch (err) {
+                            console.error('Delete expense error:', err);
+                            Alert.alert("Error", "Failed to delete expense");
+                        }
+                    }
+                }
+            ]
+        );
+    };
+
     useEffect(() => {
         fetchData();
     }, []);
@@ -80,7 +103,7 @@ export default function ExpensesList() {
                     {expenses.length > 0 ? (
                         expenses.map((expense) => (
                             <View key={expense._id} className="mb-4 flex-row items-center justify-between rounded-[28px] bg-zinc-900/40 p-5 border border-zinc-800/50">
-                                <View className="flex-row items-center">
+                                <View className="flex-row items-center flex-1">
                                     <View className="mr-4 h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800/50 border border-zinc-800/50">
                                         {expense.categoryId?.icon ? (
                                             <Text className="text-2xl">{expense.categoryId.icon}</Text>
@@ -88,8 +111,8 @@ export default function ExpensesList() {
                                             <ArrowDownRight size={24} color="#10b981" />
                                         )}
                                     </View>
-                                    <View>
-                                        <Text className="font-black text-white text-lg tracking-tight">{expense.description || expense.categoryId?.name || 'Expense'}</Text>
+                                    <View className="flex-1 mr-2">
+                                        <Text className="font-black text-white text-lg tracking-tight" numberOfLines={1}>{expense.description || expense.categoryId?.name || 'Expense'}</Text>
                                         <View className="flex-row items-center mt-1.5">
                                             <Text className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mr-3">{new Date(expense.date).toLocaleDateString()}</Text>
                                             <View className="bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/10">
@@ -98,7 +121,23 @@ export default function ExpensesList() {
                                         </View>
                                     </View>
                                 </View>
-                                <Text className="font-black text-red-500 text-lg">-{currency} {expense.amount.toLocaleString()}</Text>
+                                <View className="items-end pl-2">
+                                    <Text className="font-black text-red-500 text-lg">-{currency} {expense.amount.toLocaleString()}</Text>
+                                    <View className="flex-row items-center mt-3 gap-2">
+                                        <TouchableOpacity 
+                                            onPress={() => router.push(`/expenses/edit/${expense._id}`)}
+                                            className="h-8 w-8 items-center justify-center rounded-full bg-blue-500/10 border border-blue-500/20"
+                                        >
+                                            <Edit2 size={14} color="#3b82f6" />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity 
+                                            onPress={() => handleDelete(expense._id)}
+                                            className="h-8 w-8 items-center justify-center rounded-full bg-red-500/10 border border-red-500/20"
+                                        >
+                                            <Trash2 size={14} color="#ef4444" />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
                             </View>
                         ))
                     ) : (

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, RefreshControl, ActivityIndicator } from 'react-native';
-import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, AlertTriangle, Settings } from 'lucide-react-native';
+import { View, Text, ScrollView, TouchableOpacity, SafeAreaView, RefreshControl, ActivityIndicator, Alert } from 'react-native';
+import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, AlertTriangle, Settings, Trash2, Edit2 } from 'lucide-react-native';
 import { useRouter } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import api from '../lib/api';
@@ -107,6 +107,28 @@ export default function Dashboard() {
         await SecureStore.deleteItemAsync('token');
         await SecureStore.deleteItemAsync('user');
         router.replace('/login');
+    };
+
+    const handleDeleteExpense = async (id: string) => {
+        Alert.alert(
+            "Delete Expense",
+            "Are you sure you want to delete this expense?",
+            [
+                { text: "Cancel", style: "cancel" },
+                { 
+                    text: "Delete", 
+                    style: "destructive",
+                    onPress: async () => {
+                        try {
+                            await api.delete(`/expenses/${id}`);
+                            fetchData();
+                        } catch (err) {
+                            Alert.alert("Error", "Failed to delete expense");
+                        }
+                    }
+                }
+            ]
+        );
     };
 
     const totalSpent = stats.reduce((acc: number, item: StatItem) => acc + (item.totalAmount || 0), 0);
@@ -268,7 +290,17 @@ export default function Dashboard() {
                                     <Text className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mt-1">{new Date(expense.date).toLocaleDateString()}</Text>
                                 </View>
                             </View>
-                            <Text className="font-black text-red-500 text-lg">-{user?.currency || 'CFA'} {expense.amount.toLocaleString()}</Text>
+                            <View className="flex-row items-center gap-4">
+                                <Text className="font-black text-red-500 text-lg">-{user?.currency || 'CFA'} {expense.amount.toLocaleString()}</Text>
+                                <View className="flex-row items-center gap-2">
+                                    <TouchableOpacity onPress={() => router.push(`/expenses/${expense._id}` as any)} className="p-2 rounded-xl bg-blue-500/10">
+                                        <Edit2 size={16} color="#3b82f6" />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={() => handleDeleteExpense(expense._id)} className="p-2 rounded-xl bg-red-500/10">
+                                        <Trash2 size={16} color="#ef4444" />
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
                         </View>
                     )) : (
                         <View className="items-center py-10">
