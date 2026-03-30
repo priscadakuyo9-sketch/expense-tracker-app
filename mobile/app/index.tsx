@@ -293,7 +293,7 @@ export default function Dashboard() {
                             <View className="flex-row items-center gap-4">
                                 <Text className="font-black text-red-500 text-lg">-{user?.currency || 'CFA'} {expense.amount.toLocaleString()}</Text>
                                 <View className="flex-row items-center gap-2">
-                                    <TouchableOpacity onPress={() => router.push(`/expenses/${expense._id}` as any)} className="p-2 rounded-xl bg-blue-500/10">
+                                    <TouchableOpacity onPress={() => router.push(`/expenses/edit/${expense._id}`)} className="p-2 rounded-xl bg-blue-500/10">
                                         <Edit2 size={16} color="#3b82f6" />
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={() => handleDeleteExpense(expense._id)} className="p-2 rounded-xl bg-red-500/10">
