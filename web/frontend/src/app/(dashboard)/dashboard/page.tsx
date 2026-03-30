@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, BarChart3, AlertTriangle } from 'lucide-react';
+import { Plus, Wallet, PieChart, TrendingUp, LogOut, ArrowUpRight, ArrowDownRight, Calendar, BarChart3, AlertTriangle, Trash2, Edit2 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import api from '@/lib/api';
@@ -89,6 +89,17 @@ export default function DashboardPage() {
             console.error('Failed to fetch dashboard data', err);
         } finally {
             setLoading(false);
+        }
+    };
+
+    const handleDeleteExpense = async (id: string) => {
+        if (!window.confirm("Are you sure you want to delete this expense?")) return;
+        try {
+            await api.delete(`/expenses/${id}`);
+            fetchData();
+        } catch (err) {
+            console.error('Failed to delete expense', err);
+            alert("Failed to delete expense");
         }
     };
 
@@ -383,11 +394,29 @@ export default function DashboardPage() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="text-right">
-                                            <p className="font-bold text-white">
-                                                -{user?.currency || 'CFA'} {expense.amount.toLocaleString()}
-                                            </p>
-                                            <p className="text-[10px] text-emerald-500 font-semibold uppercase tracking-widest">Recorded</p>
+                                        <div className="flex items-center space-x-4">
+                                            <div className="text-right">
+                                                <p className="font-bold text-white">
+                                                    -{user?.currency || 'CFA'} {expense.amount.toLocaleString()}
+                                                </p>
+                                                <p className="text-[10px] text-emerald-500 font-semibold uppercase tracking-widest">Recorded</p>
+                                            </div>
+                                            <div className="flex opacity-0 group-hover:opacity-100 transition-all">
+                                                <button 
+                                                    onClick={(e) => { e.stopPropagation(); router.push(`/expenses/${expense._id}/edit`); }}
+                                                    className="p-2 text-zinc-500 hover:text-blue-500 hover:bg-blue-500/10 rounded-lg transition-all mr-1"
+                                                    title="Edit Expense"
+                                                >
+                                                    <Edit2 size={16} />
+                                                </button>
+                                                <button 
+                                                    onClick={(e) => { e.stopPropagation(); handleDeleteExpense(expense._id); }}
+                                                    className="p-2 text-zinc-500 hover:text-red-500 hover:bg-red-500/10 rounded-lg transition-all"
+                                                    title="Delete Expense"
+                                                >
+                                                    <Trash2 size={16} />
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 )) : <p className="text-zinc-500 italic py-10 text-center">Your transactions will appear here.</p>}

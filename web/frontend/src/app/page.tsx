@@ -100,11 +100,7 @@ export default function Home() {
             <Wallet className="h-4 w-4" />
             <span className="text-sm font-medium">© 2026 ExpenseTracker. All rights reserved.</span>
           </div>
-          <div className="flex space-x-6 text-sm font-medium text-zinc-400">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
-          </div>
+
         </div>
       </footer>
     </div>
